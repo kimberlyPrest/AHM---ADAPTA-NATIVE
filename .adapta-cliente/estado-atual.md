@@ -3,11 +3,11 @@
 - task_id: F1-T01
 - champion: Rose
 - spec: 04_fase-atual/specs/spec-1.1-catalogo-produtos.md
-- etapa: implementando
+- etapa: aguardando_teste_humano
 - autorizacao_implementacao: confirmada 2026-09-25 14:10 BRT — "execute a primeira task com o que ainda não foi implementado no sistema" (após relatório de análise e definição de papéis: Ethos implementa, Rose valida)
 - teste_humano: pendente
-- verificacao_automatica: pendente
+- verificacao_automatica: passou — Skip QA 0.0.4 (setup/estática/build/integrações/teste OK); migração 0007_create_produtos aplicada; API validada por curl: produto completo Ativo 200, produto incompleto Ativo bloqueado 400 ("Produto incompleto não pode ficar Ativo"), campos obrigatórios ausentes 400 com erro por campo
 - aprendizado: pendente
-- ultima_acao: iniciada a implementação de F1-T01 no app Skip "Atendimento AHM" (projeto 59655)
-- proxima_acao: finalizar implementação, rodar verificações e submeter ao teste humano
-- atualizado_em: 2026-09-25T14:20:00-03:00
+- ultima_acao: F1-T01 implementada no Skip "Atendimento AHM" (projeto 59655, versão 0.0.4): migration 0007_create_produtos, hooks on_produto_create.js/on_produto_update.js, src/services/produtos.ts, tipos ProdutoRecord em src/types/index.ts
+- proxima_acao: aguardar teste humano de Rose/Afonso (criar produto completo e incompleto via API/console) e aprovação antes de concluir
+- atualizado_em: 2026-09-25T14:25:00-03:00
