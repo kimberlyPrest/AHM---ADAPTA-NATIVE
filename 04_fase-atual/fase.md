@@ -6,7 +6,7 @@
 
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
 |---|---|---|---|---|---|---|---|---|
-| F1-T01 | Criar modelo e validações do catálogo de produtos | Ethos | SPEC 1.1 | Campos obrigatórios impedem produto incompleto ativo | CA-1-001, CA-1-002 / RED+GREEN | log/captura de produto salvo e erro obrigatório | nenhuma | ☐ |
+| F1-T01 | Criar modelo e validações do catálogo de produtos | Ethos | SPEC 1.1 | Campos obrigatórios impedem produto incompleto ativo | CA-1-001, CA-1-002 / RED+GREEN | log/captura de produto salvo e erro obrigatório | nenhuma | ✅ 2026-11-09 |
 | F1-T02 | Criar tela/lista de catálogo com ativar/inativar | Ethos | SPEC 1.1 | Produto ativo aparece; inativo some de nova seleção | CA-1-001, CA-1-003 / GREEN+REGRESSÃO | captura da lista antes/depois | F1-T01 | ☐ |
 | F1-T03 | Criar fixture de produto exemplo para demonstração | Ethos | SPEC 1.1 | Produto exemplo sustenta qualificação manual | CA-1-001 / demonstração | captura do produto exemplo | F1-T02 | ☐ |
 | F1-T04 | Criar modelo e formulário de lead manual | Ethos | SPEC 1.2 | Lead completo pode ser criado como novo | CA-1-004 / GREEN | captura/log do lead criado | nenhuma | ☐ |
