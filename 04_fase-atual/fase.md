@@ -7,8 +7,8 @@
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
 |---|---|---|---|---|---|---|---|---|
 | F1-T01 | Criar modelo e validações do catálogo de produtos | Ethos | SPEC 1.1 | Campos obrigatórios impedem produto incompleto ativo | CA-1-001, CA-1-002 / RED+GREEN | log/captura de produto salvo e erro obrigatório | nenhuma | ✅ 2026-11-09 |
-| F1-T02 | Criar tela/lista de catálogo com ativar/inativar | Ethos | SPEC 1.1 | Produto ativo aparece; inativo some de nova seleção | CA-1-001, CA-1-003 / GREEN+REGRESSÃO | captura da lista antes/depois | F1-T01 | ☐ |
-| F1-T03 | Criar fixture de produto exemplo para demonstração | Ethos | SPEC 1.1 | Produto exemplo sustenta qualificação manual | CA-1-001 / demonstração | captura do produto exemplo | F1-T02 | ☐ |
+| F1-T02 | Criar tela/lista de catálogo com ativar/inativar | Ethos | SPEC 1.1 | Produto ativo aparece; inativo some de nova seleção | CA-1-001, CA-1-003 / GREEN+REGRESSÃO | captura da lista antes/depois | F1-T01 | ✅ 2026-11-09 |
+| F1-T03 | Criar fixture de produto exemplo para demonstração *(redefinida pela emenda 1.1a: Shockwatch completo + template família impacto + vínculo produto↔template)* | Ethos | SPEC 1.1 + EM 1.1a | Produto exemplo sustenta qualificação manual com template da família vinculado | CA-1-001 / demonstração | captura do produto exemplo + template vinculado | F1-T02 | ☐ |
 | F1-T04 | Criar modelo e formulário de lead manual | Ethos | SPEC 1.2 | Lead completo pode ser criado como novo | CA-1-004 / GREEN | captura/log do lead criado | nenhuma | ☐ |
 | F1-T05 | Criar importação CSV com prévia e relatório de erros | Ethos | SPEC 1.2 | Válidos importam e inválidos são reportados | CA-1-005 / GREEN+erro | relatório de importação | F1-T04 | ☐ |
 | F1-T06 | Criar sinalização de duplicidade local | Ethos | SPEC 1.2 | Duplicidade contato+empresa é avisada antes de confirmar | CA-1-006 / REGRESSÃO | captura do aviso | F1-T04 | ☐ |
