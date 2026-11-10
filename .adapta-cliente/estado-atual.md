@@ -3,11 +3,11 @@
 - task_id: F1-T08
 - champion: Rose
 - spec: 04_fase-atual/specs/spec-1.3-motor-qualificacao-score.md
-- etapa: aguardando_teste_humano
+- etapa: aguardando_teste_humano (após correção)
 - autorizacao_implementacao: confirmada 2026-11-10 19:41 BRT — "Implemente essa tarefa" (owner Afonso)
-- teste_humano: pendente
-- verificacao_automatica: passou — Skip 0.0.24 (hash 8437ac3), QA completo OK; provas: CA-1-009 (lead qualificado → editar removendo dor → requalificar → pendente com pendências; histórico com 1 entrada {em, por, status, resultado} preservada); rollback auditável (voltar pendente com motivo → histórico 2 entradas); idempotência (resultado igual não duplica histórico); modal Editar Lead testado pela tela (dados pré-preenchidos corretamente); lead de prova revertido; base 15.370 intacta
+- teste_humano: pendente (1ª rodada revelou bug: apagar dor/produto no modal Editar não surtia efeito — undefined não enviava o campo no SDK PocketBase; corrigido em 0.0.25 enviando string vazia explicitamente)
+- verificacao_automatica: passou — Skip 0.0.25 (hash ce22bac), QA completo OK; correção provada via API (PATCH dor vazio → campo limpo); CA-1-009 e rollback já provados em 0.0.24
 - aprendizado: pendente
-- ultima_acao: F1-T08 implementada (migration 0017 qualificacao_historico + histórico montado no frontend em gravarQualificacao/voltarPendente + modal Editar Lead com Salvar e Requalificar + botão Devolver com motivo obrigatório + histórico expansível no modal de resultado)
-- proxima_acao: aguardar teste humano (Afonso edita um lead qualificado, requalifica e vê o histórico)
-- atualizado_em: 2026-11-10T19:55:00-03:00
+- ultima_acao: bug do modal Editar corrigido (limpar campos agora funciona); lead Mara revertido ao estado qualificado para o Afonso refazer o teste
+- proxima_acao: aguardar novo teste humano (editar → apagar dor → Salvar e Requalificar → pendente + histórico)
+- atualizado_em: 2026-11-10T20:18:00-03:00
