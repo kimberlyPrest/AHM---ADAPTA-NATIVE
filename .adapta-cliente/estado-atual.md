@@ -3,11 +3,11 @@
 - task_id: F1-T04
 - champion: Rose
 - spec: 04_fase-atual/specs/spec-1.2-leads-manuais-importacao.md
-- etapa: aguardando_autorizacao
-- autorizacao_implementacao: ausente
-- teste_humano: nao_aplicavel
+- etapa: implementando
+- autorizacao_implementacao: confirmada 2026-11-10 05:40 BRT — "pode implementtar" (owner Afonso, após relatório de análise)
+- teste_humano: pendente
 - verificacao_automatica: pendente
 - aprendizado: pendente
-- ultima_acao: análise da F1-T04 concluída em 2026-11-10 05:40 — coleção leads NÃO existe ainda (404 confirmado); SPEC 1.2 define campos (nome, empresa, contato, origem, produto de interesse, dor, urgência, observações, responsável opcional), status inicial novo, RN-1.4 (obrigatórios), RN-1.6 (produto ausente = pendente); produto exemplo Shockwatch Ativo disponível
-- proxima_acao: aguardar autorização para implementar
-- atualizado_em: 2026-11-10T05:40:00-03:00
+- ultima_acao: autorização recebida; iniciando implementação (migration leads + hooks + tela)
+- proxima_acao: implementar migration 0014_create_leads, hooks RN-1.4/RN-1.6, tela Leads.tsx com rota e navegação; parar no portão de teste humano
+- atualizado_em: 2026-11-10T05:41:00-03:00
