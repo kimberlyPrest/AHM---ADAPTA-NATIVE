@@ -3,11 +3,11 @@
 - task_id: F1-T08
 - champion: Rose
 - spec: 04_fase-atual/specs/spec-1.3-motor-qualificacao-score.md
-- etapa: aguardando_teste_humano (após correção)
+- etapa: aguardando_teste_humano
 - autorizacao_implementacao: confirmada 2026-11-10 19:41 BRT — "Implemente essa tarefa" (owner Afonso)
-- teste_humano: pendente (1ª rodada revelou bug: apagar dor/produto no modal Editar não surtia efeito — undefined não enviava o campo no SDK PocketBase; corrigido em 0.0.25 enviando string vazia explicitamente)
-- verificacao_automatica: passou — Skip 0.0.25 (hash ce22bac), QA completo OK; correção provada via API (PATCH dor vazio → campo limpo); CA-1-009 e rollback já provados em 0.0.24
+- teste_humano: pendente de confirmação final — 2ª rodada VALIDOU a correção: Afonso editou Mara (apagou dor), Salvar e Requalificar → status pendente, pendência "dor / necessidade não informada", histórico com 2 entradas preservadas (verificado na base pelo Bart); captura anexada mostra o card com badge Pendente + justificativa RN-1.8; aguardando o "pode concluir" do owner
+- verificacao_automatica: passou — Skip 0.0.25 (hash ce22bac), QA completo OK; CA-1-009 provado via API e confirmado no teste humano; rollback auditável provado em 0.0.24
 - aprendizado: pendente
-- ultima_acao: bug do modal Editar corrigido (limpar campos agora funciona); lead Mara revertido ao estado qualificado para o Afonso refazer o teste
-- proxima_acao: aguardar novo teste humano (editar → apagar dor → Salvar e Requalificar → pendente + histórico)
-- atualizado_em: 2026-11-10T20:18:00-03:00
+- ultima_acao: teste humano 2ª rodada validou a correção do bug de edição (limpar campos); Mara revertida ao estado original
+- proxima_acao: aguardar aprovação explícita do owner para concluir a F1-T08
+- atualizado_em: 2026-11-10T20:25:00-03:00
