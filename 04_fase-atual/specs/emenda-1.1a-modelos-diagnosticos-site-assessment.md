@@ -2,7 +2,7 @@
 
 **Data:** 2026-11-09
 **Origem do sinal:** Afonso Moreira (owner AHM Solution) — consolidação da metodologia comercial em sessão de trabalho com o Ethos (modelos de negócio, matriz de complexidade, Site Assessment, perguntas de reflexão e templates de diagnóstico por família)
-**Status:** PROPOSTA — aguardando ratificação da consultora antes de virar tasks
+**Status:** RATIFICADA — 2026-11-09 22:58 BRT, aprovação do owner Afonso Moreira ("vamos ratificar") como decisão de produto; consultora informada via changelog
 **SPEC afetada:** SPEC-1-001 (catálogo de produtos); reflexos em SPEC 1.2 (leads), 1.3 (qualificação), 1.4 (transbordo), 1.6 (KPIs), 1.7 (interações)
 **Fontes:** slides de modelos de negócio (4), Playbook de Vendas Baixa Complexidade (16/04/2026), Bíblia de Vendas/Site Assessment (21/04/2026), Site Assessment detalhado (20p), Manual de Vendas 05 (2020, perguntas de reflexão), 8 templates de diagnóstico (14 documentos), definições verbais do owner (registradas na sessão)
 
@@ -77,13 +77,13 @@ Campo novo `familia_tecnologica` no produto (relation para a família do templat
 
 ## 5. Impacto nas tasks da Fase 1
 
-- **F1-T03 (fixture)** — redefinida por esta emenda: produto exemplo Shockwatch completo (especialista vinculado, timing, FAQ) + template da família impacto/tombamento carregado + vínculo produto↔template. Aguardando ratificação.
+- **F1-T03 (fixture)** — redefinida por esta emenda: produto exemplo Shockwatch completo (especialista vinculado, timing, FAQ) + template da família impacto/tombamento carregado + vínculo produto↔template. Liberada após ratificação.
 - **Tasks candidatas pós-ratificação (não criadas ainda):** migração `modelos_negocio` + seed dos 5 modelos; migração `templates_diagnostico` + seed das 8 famílias; campo `familia_tecnologica` + relation produto↔template; extensão do tipo_venda; fluxo de etapas do Site Assessment no lead (reflexo SPEC 1.7).
 - **F1-T01 e F1-T02 concluídas permanecem válidas** — a emenda estende, não desfaz (o enum tipo_venda será substituído por relation; hooks e tela seguem funcionando).
 
 ## 6. Pendências de decisão
 
-1. Ratificação da consultora (ou aprovação do owner como emenda de produto).
+1. ~~Ratificação da consultora~~ — RATIFICADA pelo owner em 2026-11-09 22:58 BRT como decisão de produto.
 2. Definição de onde o Site Assessment vive: coleção própria `etapas_oportunidade` vs. campos no lead (decisão de arquitetura na task).
 3. Hit Not Report (plataforma de dados) — sem template próprio recebido; confirmar se usa o template da família segurança ou tem questionário próprio.
 4. Usuário "Especialista Produto" (fixture) — criar como usuário de demonstração ou aguardar cadastro real da equipe.
