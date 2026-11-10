@@ -109,3 +109,4 @@ Uma tela ou módulo permite criar, editar, listar e consultar produtos/famílias
 
 | Data | Origem do sinal | Micro-spec/task | Motivo |
 |---|---|---|---|
+| 2026-11-09 | Owner AHM (Afonso) — consolidação da metodologia comercial | [emenda-1.1a-modelos-diagnosticos-site-assessment.md](emenda-1.1a-modelos-diagnosticos-site-assessment.md) | tipo_venda Recorrente/Pontual não comporta os 5 modelos de negócio reais; diagnósticos são templates por FAMÍLIA tecnológica (8 famílias, 14 documentos); Site Assessment (8 etapas) e AHM Cycle (5 fases) precisam ser auditáveis no sistema para garantir entendimento e controle do processo de vendas |

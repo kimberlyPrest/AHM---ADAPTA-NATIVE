@@ -1,13 +1,13 @@
 # Estado atual — Adapta Cliente
 
-- task_id: F1-T03
+- task_id: F1-T03 (redefinida pela emenda 1.1a)
 - champion: Rose
-- spec: 04_fase-atual/specs/spec-1.1-catalogo-produtos.md
-- etapa: aguardando_autorizacao
-- autorizacao_implementacao: ausente
-- teste_humano: nao_aplicavel (ainda não implementada)
+- spec: 04_fase-atual/specs/spec-1.1-catalogo-produtos.md + emenda-1.1a
+- etapa: bloqueada
+- autorizacao_implementacao: ausente (emenda aguarda ratificação)
+- teste_humano: nao_aplicavel
 - verificacao_automatica: pendente
 - aprendizado: pendente
-- ultima_acao: análise da F1-T03 concluída em 2026-11-09 — baseline verificado: catálogo tem 1 produto (Shockwatch) completo nos campos da SPEC mas sem especialista/timing/faq preenchidos; especialista é relation para users (só admin seed existe) e vinculação foi provada viável via API (rollback feito)
-- proxima_acao: aguardar autorização para implementar
-- atualizado_em: 2026-11-09T13:55:00-03:00
+- ultima_acao: proposta de emenda 1.1a montada em 2026-11-09 com o owner (modelos de negócio, templates de diagnóstico por família, Site Assessment auditável) e registrada em 04_fase-atual/specs/emenda-1.1a-modelos-diagnosticos-site-assessment.md
+- proxima_acao: ratificação da emenda pela consultora (ou aprovação do owner) para liberar F1-T03 redefinida e as tasks candidatas
+- atualizado_em: 2026-11-09T22:58:00-03:00
