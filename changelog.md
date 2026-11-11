@@ -1,15 +1,7 @@
 # Changelog
 
+- 2026-11-10 · [Afonso] · Task F1-T10 IMPLEMENTADA (aguardando teste humano): fila de transbordo (SPEC 1.4). Migration 0018_create_transbordos (coleção transbordos: lead, produto, motivo, especialista, status [Pendente atribuição|Aberto|Resolvido], comentario, resolucao, resolvido_em/por + índices). Hook on_transbordo_validate.js (RN-1.11: motivo obrigatório; RN-1.12: resolução vazia não fecha; auditoria resolvido_em/por via hook de requisição). Hook on_leads_qualificar.js estendido (RN-1.11: qualificação marcando transbordo cria o item na fila automaticamente, uma vez por transição, com especialista herdado do produto; sem especialista → "Pendente atribuição"). Tela /transbordos (fila paginada server-side 20/página, contadores, modal atribuir especialista + resolver com resolução obrigatória) + rota e item no menu. Skip 0.0.29 e 0.0.30 (hash a290e86), QA completo OK. Provas via API (12/12): CA-1-010 item criado automaticamente com motivo; cenário limite especialista herdado; RN-1.11 sem motivo → 400; RN-1.12 resolução vazia → 400, com resolução → 200 + resolvido_em/por; regressão: qualificação normal não cria item na fila. Base limpa após provas (0 transbordos, 0 leads de prova). Correção em 0.0.30: resolvido_por exigia hook de requisição (model hook não tem e.auth).
+
 ## 2026-09-17
 
 - Pasta operacional inicial criada para a Fase 1.
-
-- 2026-11-09 · [Afonso/Rose] · Task F1-T01 concluída: modelo e validações do catálogo de produtos (migration 0007_create_produtos + hooks RN-1.1/CA-1-002). Provas reexecutadas via API em 09/11: produto completo Ativo → 200; incompleto tentando Ativo → 400; campos obrigatórios ausentes → 400 por campo. Teste humano aprovado pelo owner Afonso ("✅ Aprovo o teste da F1-T01").
-
-- 2026-11-09 · [Afonso/Rose] · Task F1-T02 concluída: tela/lista de catálogo com ativar/inativar (src/pages/Produtos.tsx, rota /produtos, navegação no Layout). Skip 0.0.5 (hash 7f46b2a), QA completo OK. Provas reexecutadas via API em 09/11: produto ativo aparece no filtro Ativo; inativado some da seleção (lista vazia); reativado volta. Ciclo verificado também na tela do preview. Teste humano aprovado pelo owner Afonso ("✅ Testei e funcionou").
-
-- 2026-11-09 · [Afonso] · Emenda 1.1a PROPOSTA (aguardando ratificação): coleção modelos_negocio (5 modelos), matriz produto×complexidade×família (8 baixa + 12 alta), coleção templates_diagnostico (8 famílias/14 documentos), Site Assessment 8 etapas auditável com perguntas de reflexão + AHM Cycle 5 fases. F1-T03 redefinida pela emenda; novas tasks candidatas pós-ratificação.
-
-- 2026-11-09 · [Afonso] · Emenda 1.1a RATIFICADA pelo owner como decisão de produto ("vamos ratificar"). F1-T03 redefinida liberada para análise; tasks candidatas da emenda entram na fila da Fase 1.
-
-- 2026-11-10 · [Afonso/Rose] · Task F1-T03 concluída (emenda 1.1a): migrações 0008-0013 — coleção modelos_negocio (5 modelos seedados), templates_diagnostico (11 templates das 8 famílias), relations familia_tecnologica/modelo_negocio no produto, fixture Shockwatch completo (especialista, timing, FAQ, família DIAGNÓSTICO SHOCKWATCH® 28 perguntas, modelo Cíclico). Skip 0.0.8 (hash de3ab81), QA completo OK. Provas via API: 9/9 checks do fixture; regressões passaram (hooks F1-T01, tela /produtos, ciclo inativar/reativar). Teste humano aprovado pelo owner Afonso ("Confirmado, pode concluir" 10/11 05:34).
