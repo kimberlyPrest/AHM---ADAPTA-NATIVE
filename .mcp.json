@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "skip": {
+      "type": "http",
+      "url": "https://api.goskip.dev/mcp"
+    }
+  }
+}
