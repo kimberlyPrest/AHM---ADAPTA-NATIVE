@@ -18,7 +18,7 @@
 | F1-T10 | Criar fila/modelo de transbordo | Ethos | SPEC 1.4 | Lead complexo cria item com motivo | CA-1-010 / GREEN | captura da fila | F1-T07 | ✅ 2026-11-10 |
 | F1-T11 | Associar especialista ou pendência ao transbordo | Ethos | SPEC 1.4 | Produto sem especialista fica pendente visível | CA-1-011 / limite | captura da pendência | F1-T10 | ✅ 2026-11-11 |
 | F1-T12 | Criar resolução/reabertura de transbordo | Ethos | SPEC 1.4 | Resolução devolve lead a status válido e preserva histórico | CA-1-012 / REGRESSÃO | captura/log da resolução | F1-T10 | ✅ 2026-11-11 |
-| F1-T13 | Gerar oportunidade a partir de lead qualificado | Ethos | SPEC 1.5 | Lead qualificado cria oportunidade com justificativa | CA-1-013 / GREEN | captura da oportunidade | F1-T07 | ☐ |
+| F1-T13 | Gerar oportunidade a partir de lead qualificado | Ethos | SPEC 1.5 | Lead qualificado cria oportunidade com justificativa | CA-1-013 / GREEN | captura da oportunidade | F1-T07 | 🔶 implementada 2026-11-11 (0.0.38) — aguardando teste humano |
 | F1-T14 | Criar decisões aprovar/rejeitar/revisar | Ethos | SPEC 1.5 | Usuário registra decisão humana | CA-1-014 / GREEN | captura da decisão | F1-T13 | ☐ |
 | F1-T15 | Exigir motivo em rejeição e bloquear duplicidade | Ethos | SPEC 1.5 | Rejeição sem motivo não salva; duplicidade sinalizada | CA-1-015 / erro+regressão | captura da validação | F1-T14 | ☐ |
 | F1-T16 | Criar eventos/base de cálculo de métricas | Ethos | SPEC 1.6 | K1, K2 e K3 leem dados locais | CA-1-016, CA-1-017, CA-1-018 / GREEN | log/captura dos cálculos | F1-T07, F1-T19 | ☐ |
