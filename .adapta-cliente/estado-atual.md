@@ -1,13 +1,12 @@
 # Estado atual — Adapta Cliente
 
-- task_id: Blocos 2 e 3 (F1-T19..T21 — SPEC 1.7; F1-T16..T18 — SPEC 1.6)
+- task_id: Bloco 4 (pendências técnicas — última task da Fase 1)
 - champion: Rose
-- spec: 04_fase-atual/specs/spec-1.7-registro-interacoes-proposta.md + spec-1.6-painel-kpis-baseline.md
-- etapa: aguardando_teste_humano (Blocos 2 e 3 revisados pelo Bart; teste conjunto pelo roteiro do CC)
-- autorizacao_implementacao: Blocos 2 e 3 autorizados pelo owner 12/11; CC escreve, Bart revisa
-- teste_humano: Bloco 1 APROVADO (12/11 ~10:37); Blocos 2+3 pendentes (teste conjunto)
+- spec: pendências da varredura (duplicidade importação vs base completa) + emenda 1.2a (campo telefone no lead)
+- etapa: aguardando_autorizacao (Bloco 4 — briefing a preparar e apresentar ao owner)
+- teste_humano: Blocos 1, 2 e 3 APROVADOS pelo owner (12/11)
 - verificacao_automatica: passou (Bloco 2: provas API 10/10; Bloco 3+técnico: rota 401/400, 4 períodos × fontes, K1 real 0% com aviso, demo via botão 70%/4/10, limpeza completa; linguagem sem códigos internos)
-- aprendizado: pendente
-- ultima_acao: Bloco 3 + técnico implementados pelo CC (0.0.52-0.0.54) e revisados pelo Bart; base real intacta
-- proxima_acao: teste conjunto dos Blocos 2+3 pelo owner (roteiro do CC); push emenda 1.3a + roteiro pendente (arquivos não chegaram ao Bart)
-- atualizado_em: 2026-11-12T12:55:00-03:00
+- aprendizado: registrado (insumo de teste aplicado com sucesso; demonstração com limpeza em cascata como padrão para fixtures futuras)
+- ultima_acao: Fase 1 em 21/21 nas tasks de construção (Blocos 1-3 aprovados pelo owner); emenda 1.3a publicada como PROPOSTA (9e5683c/b3491d5)
+- proxima_acao: briefing do Bloco 4 (duplicidade importação vs base completa + campo telefone) para autorização do owner; ratificação da emenda 1.3a com a consultora
+- atualizado_em: 2026-11-12T19:15:00-03:00
