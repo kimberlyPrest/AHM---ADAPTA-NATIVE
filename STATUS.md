@@ -4,8 +4,9 @@ Fase atual liberada para execução.
 
 ## Progresso Fase 1 (2026-11-12)
 
-- Tasks concluídas: 15/21 (F1-T01 a F1-T12 + Bloco 1 completo) — ~71% · SPEC 1.5 completa (oportunidades + decisões)
-- Implementadas e revisadas pelo Bart, aguardando teste conjunto do owner: Bloco 2 (F1-T19+T20+T21 — SPEC 1.7, provas 10/10) e Bloco 3 + técnico (F1-T16+T17+T18 — SPEC 1.6, provas completas: rota de capacidade 401/400/4×4, K1 real 0% com aviso de amostra, demo via botão 70%/4/10, limpeza completa, linguagem sem códigos internos)
-- Task ativa: teste consolidado dos Blocos 2+3 pelo owner (roteiro do CC em 06_notas/roteiro-teste-blocos-2-3.md) — Fase 1 fecha em 21/21
+- **Fase 1: 21/21 (100%)** — Blocos 1, 2 e 3 APROVADOS pelo owner (12/11, "Feito!" ~19:05); Bloco 4 (pendências técnicas) implementado pelo CC (0.0.55-0.0.56) e revisado pelo Bart, aguardando teste humano
+- Bloco 4: duplicidade da importação contra a base completa (lotes de 30 ≤300 contatos; varredura paginada de 1.000 acima; falha → aviso "Duplicidades não verificadas") + campo telefone no lead (migration 0023; importação mapeia Telefone/Celular; "Celular: …" nas observações; campo em Novo/Editar Lead e no modal da oportunidade)
+- Provas do Bart: duplicado fora da página 1 sinalizado na prévia (tela) ✓; telefone na importação em 3 cenários ✓; telefone limpo via string vazia ✓; telefone no modal da oportunidade ✓; volume 320 contatos (varredura, ~1s) ✓; plural do aviso corrigido em 0.0.57 ("1 já existe na base") ✓; base real intacta (0 registros de prova)
+- Task ativa: teste do Bloco 4 pelo owner (roteiro 06_notas/roteiro-teste-bloco-4.md + insumos CSV) — Fase 1 fecha com a aprovação
 - Champion de validação: Rose (testes humanos das F1-T01 a F1-T12 aprovados pelo owner Afonso em 09-11/11/2026)
-- Emenda 1.3a (IA nativa pré-vendas) PROPOSTA — aguardando ratificação do owner com a consultora; arquivos pendentes de push (emenda + LEIA-ME + casos.csv + roteiro de teste)
+- Emenda 1.3a (IA nativa pré-vendas) PROPOSTA — aguardando ratificação do owner com a consultora; 10 primeiros casos destravam a Fatia 0 da IA
