@@ -6,8 +6,8 @@
 - etapa: aguardando_teste_humano
 - autorizacao_implementacao: confirmada 2026-11-11T06:11 "implemente a tarefa"
 - teste_humano: pendente
-- verificacao_automatica: passou (11/11 provas API em 0.0.38: CA-1-013 + RN-1.13 idempotência + regressão; prova de tela do modal; base limpa)
+- verificacao_automatica: passou (11/11 provas API em 0.0.38; correção UX 0.0.39/0.0.40 — contato do lead no modal + linguagem humanizada, validado na tela)
 - aprendizado: pendente
-- ultima_acao: F1-T13 implementada (0.0.38), provas 11/11 + prova de tela, repo atualizado
-- proxima_acao: aguardar teste humano do owner na tela /oportunidades
-- atualizado_em: 2026-11-11T06:25:00-03:00
+- ultima_acao: F1-T13 implementada (0.0.38) + correção UX (0.0.39/0.0.40) do feedback do owner
+- proxima_acao: aguardar novo teste humano do owner na tela /oportunidades (com contato visível)
+- atualizado_em: 2026-11-12T09:10:00-03:00
