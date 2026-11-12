@@ -52,3 +52,11 @@ Instruções para o Claude Code trabalhando neste projeto. O projeto vive no Ski
 
 - Push local falha (sandbox sem credencial) — usar MCP GitHub `push_files` (owner kimberlyPrest, repo AHM---ADAPTA-NATIVE, branch main) com o CONTEÚDO COMPLETO de cada arquivo (push parcial TRUNCA o arquivo no repo), depois `git pull --rebase` no clone local.
 - Se o rebase travar com commit duplicado: `git rebase --abort` → `git reset --hard origin/main` (o GitHub já tem a versão correta).
+
+## Regra de linguagem (owner, 12/11/2026 — OBRIGATÓRIA)
+
+Todo texto exibido ao usuário (UI, toasts, mensagens de erro, justificativas automáticas gravadas em registros) é **português do Brasil corporativo**:
+- Frase inicia com letra maiúscula; pontuação completa.
+- **Nunca** expor códigos internos ao usuário: RN-x.x, SPEC x.x, F1-Txx, AP-xxxx ficam em comentários de código e documentação, nunca em strings de UI ou mensagens de erro.
+- Plural correto ("1 item", "2 itens"); sem jargão técnico (ex.: "item(ns)").
+- A revisão do Bart inclui checar linguagem, além de provas técnicas.
