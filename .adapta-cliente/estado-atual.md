@@ -1,12 +1,12 @@
 # Estado atual — Adapta Cliente
 
-- task_id: Bloco 2 da Fase 2 (F2-T10 proteção contra exclusão + F2-T05 checklist + F2-T06 fechamento ganho/perda + F2-T07 painel de taxas)
+- task_id: Bloco 3 da Fase 2 (F2-T11 permissões por papel) — autorizado pelo owner 13/11 ~13:30; Bloco 2 segue em aguardando_teste_humano (Julio e Rose, prazo 1 dia útil)
 - champion: Rose
-- spec: briefing 06_notas/briefing-f2-bloco2-protecao-fechamento-painel.md + emenda 1.2b (RN-2.3/RN-2.4)
-- etapa: aguardando_teste_humano (implementado pelo CC 0.0.62-0.0.63 e revisado pelo Bart c/ provas completas API+tela)
-- teste_humano: roteiro 06_notas/roteiro-teste-f2-bloco2.md (~15 min; insumos PROVA prontos: "PROVA Teste Bloco 2 Baixa" c/ fechamento p/ ganho-perda-reabertura; "PROVA Teste Bloco 2 Alta" na etapa 6 p/ checklist e alerta)
-- verificacao_automatica: passou (provas do Bart: DELETE em lead/oportunidade/interação REAIS → 403 mesmo como admin; PROVA/DEMO apaga c/ auditoria em exclusoes_auditoria; arquivamento exige motivo, é reversível, tira das listas/contadores e mantém na verificação de duplicados; checklist: item de outra etapa → 400, resposta imutável → 400, etapa encerrada → 400, alerta de insucesso provado NA TELA; fechamento: sem motivo/sem fechamento/troca direta/etapa fechada/reabrir sem justificativa → 400, oportunidade_fechamentos com 3 registros completos, POST forjado → 403; painel: cálculo replicado por API e conferido na tela, real×alvo nas duas trilhas + taxa de vitória)
+- spec: briefing 06_notas/briefing-f2-bloco3-permissoes.md (campo papel em users admin/vendedor; API rules por coleção + hooks server-side; vendedor opera o dia a dia e leva 403 em exclusão/auditoria/gestão de usuários/edição de produto/demonstração; admin como hoje; proteção PROVA/DEMO do Bloco 2 somada, nunca substituída)
+- etapa: aguardando_autorizacao → AUTORIZADO (briefing publicado)
+- teste_humano: Bloco 2 em teste com usuários (Julio e Rose, prazo 1 dia útil; roteiro 06_notas/roteiro-teste-f2-bloco2-usuarios.md; fichas → Bart tabula e aplica critérios do protocolo 06_notas/protocolo-teste-usuarios.md)
+- verificacao_automatica: pendente (provas do Bart após implementação: login vendedor 403 em exclusão/auditoria/usuários/produtos/demo e opera o resto; admin como hoje; proteção PROVA/DEMO intacta para ambos os papéis)
 - aprendizado: checklist das 13 etapas COMPLETO na base (0030, 0.0.64 — 67 itens conferidos pelo Bart via API: contagem exata, sem duplicatas, idempotente; fonte canônica 06_notas/conteudo-checklist-etapas-f2-t05.md; rascunho de 04_fase-atual/conteudos/ marcado NÃO CANÔNICO)
-- ultima_acao: Bloco 2 revisado pelo Bart; migration 0030 conferida; provas do Bart limpas; base 15.383 (15.370 reais + 9 do teste do Bloco 1 + 2 insumos do Bloco 2 + 2 do owner); observação: par duplicado real do Aroldo (LP + CSV, mesmo contato) a decidir
-- proxima_acao: teste do Bloco 2 pelo owner (insumos PROVA intactos); depois limpeza dos PROVA pelo Bart e briefing do Bloco 3 (IA — emenda 1.3a aguarda ratificação + 10 casos)
-- atualizado_em: 2026-11-13T07:45:00-03:00
+- ultima_acao: briefing do Bloco 3 publicado (GitHub c6b097c); teste com usuários do Bloco 2 em andamento
+- proxima_acao: CC implementa F2-T11; Bart roda as provas dos dois papéis; em paralelo aguardar fichas de Julio e Rose; depois emenda 1.3a (IA — aguarda ratificação + 10 casos)
+- atualizado_em: 2026-11-13T13:35:00-03:00
