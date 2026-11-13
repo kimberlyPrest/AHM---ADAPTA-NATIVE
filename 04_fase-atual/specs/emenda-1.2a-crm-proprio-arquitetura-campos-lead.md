@@ -2,13 +2,13 @@
 
 **Data:** 2026-11-10
 **Origem do sinal:** Afonso Moreira (owner AHM Solution) — sessão de trabalho com o Ethos em 10/11/2026: decisão de desenvolver CRM próprio em vez de Pipedrive, revelação do ERP próprio em construção (Claude Code), envio dos mapas de processo Mkt/Vendas e ADM/FIN/COMEX/LOG, e respostas às três perguntas abertas do mapeamento.
-**Status:** PROPOSTA — aguardando ratificação do owner
+**Status:** RATIFICADA pelo owner em 12/11/2026 (21:48, formulário de decisões da Fase 2) — campos novos entram no briefing da Fase 2
 **SPECs afetadas:** SPEC 1.2 (leads — campos de entrada), SPEC 1.5 (fila de oportunidades — ambiente de fechamento), SPEC 1.6 (KPIs — previsão), SPEC 1.7 (interações — timeline)
 **Fontes:** mapa Mkt/Vendas (`artifacts/mapeamento-fluxo-mkt-vendas-ahm.md`), mapa ADM/FIN/COMEX/LOG (`artifacts/mapeamento-fluxo-adm-fin-comex-log-ahm.md`), relato do owner sobre estrutura BR/EUA e ERP próprio
 
 ---
 
-## 1. Decisão de produto: CRM próprio AHM (substitui Pipedrive como destino)
+## 1. Decisão de produto: CRM próprio AHM (substitui Pipedrive como CRM central)
 
 O owner decidiu construir o CRM próprio em vez de adotar/manter Pipedrive como CRM central.
 
@@ -18,8 +18,8 @@ O owner decidiu construir o CRM próprio em vez de adotar/manter Pipedrive como 
 
 | Módulo | Conteúdo | Fase |
 |---|---|---|
-| M1 — Leads & Qualificação | leads manuais/CSV, duplicidade, estados de qualificação, transbordo, diagnóstico por família | **Fase 1 (em curso — 4/21)** |
-| M2 — Oportunidade & Pipeline | oportunidade a partir de lead qualificado, decisões aprovar/rejeitar/revisar, proposta, ambiente de fechamento, win rate | Fase 2 |
+| M1 — Leads & Qualificação | leads manuais/CSV, duplicidade, estados de qualificação, transbordo, diagnóstico por família | **Fase 1 (concluída 13/11/2026 — 23/23)** |
+| M2 — Oportunidade & Pipeline | oportunidade a partir de lead qualificado, decisões aprovar/rejeitar/revisar, proposta, ambiente de fechamento, win rate | **Fase 2 (em curso)** |
 | M3 — Pós-venda | AHM Cycle e Site Assessment auditáveis por etapa, timeline de interações, recompra PUSH | Fase 2/3 |
 | M4 — Integrações | webhook RD Station (A1), Agente IA WhatsApp (A2), OMIE (faturamento/recorrência), QuickBooks | Fase 3 |
 | M5 — Inteligência | KPIs K1/K2/K3, painel de conversão por etapa, forecast por modelo de negócio | Fase 3/4 |
@@ -58,7 +58,7 @@ O mapa de processos mostra que o cadastro já bifurca hoje: **NACIONAL → OMIE*
 | `moeda` | select | BRL · USD | Derivado do ambiente de fechamento |
 | `entidade_vendedora` | select | AHM Brasil · AHM Solution Americas | Derivado do ambiente de fechamento |
 
-**Nota de nomenclatura:** `modelo_compra` (NACIONAL/IMPORTAÇÃO) é decisão de **como a mercadoria chega**; `ambiente_fechamento` é decisão de **onde o negócio é fechado** (moeda e entidade). São campos distintos — o mapa ADM usa o primeiro, o relato do owner usa o segundo.
+**Nota de nomenclatura:** `modelo_compra` (Nacional/Importação) é decisão de **como a mercadoria chega**; `ambiente_fechamento` é decisão de **onde o negócio é fechado** (moeda e entidade). São campos distintos — o mapa ADM usa o primeiro, o relato do owner usa o segundo.
 
 **Impacto nas tasks:** os campos entram na F1-T05 (importação CSV) como colunas opcionais do arquivo e no formulário de lead; a obrigatoriedade plena é do M2.
 
@@ -98,7 +98,7 @@ O mapa Mkt/Vendas mostra 3 trilhas (Cíclica, Assinatura, Pontual). Os 5 modelos
 
 ## 7. Pendências de decisão
 
-1. **Ratificação desta emenda** pelo owner (texto acima é a proposta).
+1. ~~**Ratificação desta emenda** pelo owner~~ — **RATIFICADA 12/11/2026** (formulário de decisões da Fase 2).
 2. **Frota de locação**: o owner não sabe onde é registrada hoje ("deveria estar no OMIE"). Decidir se vira módulo do ERP (transacional: equipamento, contrato, devolução, calibração) com visão no CRM, ou coleção própria no CRM.
 3. **Contrato de integração CRM↔ERP**: formato dos dados e eventos (definir no M4, quando o ERP estiver mais maduro).
 4. **Pipedrive**: confirmar se sai de operação imediatamente ou se permanece em paralelo durante a transição (impacto: dupla digitação no time de vendas).
