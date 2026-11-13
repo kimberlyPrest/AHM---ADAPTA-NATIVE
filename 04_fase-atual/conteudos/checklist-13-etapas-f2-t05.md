@@ -1,3 +1,5 @@
+> **⚠️ NÃO CANÔNICO — rascunho anterior.** A versão aplicada na migration 0030 é `06_notas/conteudo-checklist-etapas-f2-t05.md` (itens granulares, sem agrupamento, com os 3 insucessos da fase 4 baixa). Este arquivo mantém o texto original como referência de origem; as diferenças (itens agrupados, ABCDT/SPIN como critério, regra transversal do CRM, itens "(Bart)") ficam para validação do owner em uma emenda futura, se ele quiser incluir.
+
 # Conteúdo do checklist das 13 etapas — F2-T05 (fonte: metodologia AHM)
 
 **Preparado por**: Bart · **Data**: 13/11/2026 · **Destino**: migration de seed `etapa_checklist_itens`
