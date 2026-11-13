@@ -1,45 +1,47 @@
-# Revisão do Bloco 3 — provas do Bart (0.0.67)
+# Revisão do Bloco 3 (0.0.67) — provas do Bart · 13/11/2026
 
-**Data**: 13/11/2026 · **Veredito**: BLOQUEADO — defeito D3 bloqueante; regras de papel corretas (11 provas verdes).
+## Resultado FINAL: APROVADO — 23/24 provas verdes; o "D3" era falso positivo do script de provas
 
-## D3 (bloqueante): leitura e exclusão autenticadas quebram em TODAS as coleções
+**Correção de diagnóstico (13/11 ~15:40)**: o 400 "Something went wrong" em GET/DELETE autenticados NÃO era defeito do servidor — era o helper do meu script enviando o token como CORPO da requisição (argumento posicional caiu no parâmetro body, com Content-Type: application/json). O PocketBase lê o corpo antes de regras e hooks e recusa JSON malformado com esse 400 genérico (evidência do CC: os 400 levavam 0,03–0,25 ms — rápido demais para hook/banco; GET sem corpo → 200; GET com corpo JSON inválido → 400 mesmo sem login). Nada foi alterado no Skip; a versão segue 0.0.67. Aprendizado registrado: em GET/DELETE, nunca enviar corpo nem Content-Type; token sempre como keyword.
 
-**Sintoma**: GET (list/view) e DELETE com auth → 400 "Something went wrong while processing your request." em TODAS as coleções (leads, produtos, users, tickets, oportunidades…). Sem auth, GET responde 200 com lista vazia (regra exige auth — correto). POST e PATCH (hooks de MODEL) funcionam 100%.
+## Bateria completa re-executada com o script corrigido — 23/24 PASS
 
-**Padrão que isola a causa**: hooks de REQUEST quebram; hooks de MODEL funcionam. Coleções SEM hook novo (tickets) também quebram → o problema está no hook `permissoes_papel.js` registrando callbacks de request que estouram para QUALQUER requisição autenticada (exceção interna vira 400 genérico antes do `e.next()`).
-
-**Suspeito principal**: `e.hasSuperuserAuth()` estourando no contexto JSVM quando a requisição é de usuário comum — ou leitura de `e.auth.collection().name`/`papel` em caminho nulo.
-
-**Comportamento temporal**: as primeiras provas de GET passaram (5/5); após a primeira falha, ficou permanente (20/20 falhas; esperas de 30s/60s/2min/5min/10min não recuperaram).
-
-**Impacto**: a TELA usa o mesmo backend — listagens quebradas = plataforma inutilizável para admin e vendedor. Julio e Rose não conseguem usar nada enquanto isso persistir.
-
-**Ação pedida**: revisar `permissoes_papel.js` — envolver o corpo de cada callback de request em try/catch defensivo, ou substituir `e.hasSuperuserAuth()` por verificação segura (`e.auth !== null && e.auth.collection().name === 'users' && e.auth.getString('papel') === 'admin'`), garantindo que NENHUM caminho estoure antes do `e.next()`. O mesmo vale para os hooks de view/list de auditoria. Reimplantar e avisar — o Bart re-roda a bateria completa.
-
-## Provas que PASSARAM (antes do bloqueio — todas as regras de papel funcionam)
-
-1. (a) Cadastro sem login → 400 ✓
-2. (b) Admin tenta apagar lead real (Aroldo) → 403 ✓ (proteção do Bloco 2 vale para admin)
-3. (d) Renomear lead real para "PROVA …" → 400 ✓
-4. (e) Vendedor cadastra lead da empresa "Demolidora" → aceito ✓ (palavra inteira correta)
-5. Vendedor apaga lead PROVA → 403 ✓; admin apaga PROVA → 204 + auditoria com `apagado_por_tipo: "administrador"` ✓
-6. Vendedor lê auditoria → 403 ✓; lê fechamentos → 403 ✓; consulta auditoria por id → 404 (exceção documentada) ✓
-7. Vendedor cria usuário → 403 ✓; troca o próprio papel → 403 ✓; edita outro usuário → 404 (exceção documentada) ✓
-8. Vendedor edita produto → 403 ✓; último admin não rebaixa a si → 400 ✓
-9. Vendedor cria lead DEMO → 403 ✓; admin cria DEMO → OK ✓
+1. Sanidade: GET admin sem corpo → 200 ✓
+2. (a) Cadastro sem login → 400 ✓
+3. Vendedor cria lead PROVA → 200 ✓
+4. (c1) Vendedor apaga PROVA → 403 ✓
+5. (c2) Admin apaga PROVA → 204 ✓
+6. (c3) Auditoria registra `apagado_por_tipo: "administrador"` ✓
+7. (b) Admin apaga lead real (Aroldo) → 403 ✓ (proteção do Bloco 2 vale para admin)
+8. (d) Renomear lead real para "PROVA …" → 400 ✓
+9. (e) Vendedor cadastra "Demolidora …" → 200 ✓ (palavra inteira correta)
 10. Vendedor edita lead próprio → 200 ✓ (opera o dia a dia)
-11. Admin lista produtos e edita produto → OK (nas janelas em que o servidor respondia) ✓
+11. Vendedor lê auditoria → 403 ✓
+12. Vendedor lê fechamentos → 403 ✓
+13. Vendedor consulta auditoria por id → 404 ✓ (exceção documentada)
+14. Vendedor troca o próprio papel → 403 ✓
+15. Vendedor edita outro usuário → 404 ✓ (exceção documentada)
+16. Admin lista produtos → 200 ✓
+17. Vendedor edita produto → 403 ✓
+18. Admin edita produto → 200 ✓
+19. Último admin não rebaixa a si → 400 ✓
+20. Vendedor cria lead DEMO → 403 ✓
+21. Admin cria lead DEMO → 200 ✓
+22. Admin apaga DEMO → 204 ✓
+23. Arquivar lead de teste "Demolidora …" (limpeza) → 200 ✓
 
-**Observação de método**: nas primeiras rodadas usei o header `Authorization` sem `Bearer` em GET — isso também produz 400 genérico no PocketBase. Re-provei tudo com `Accept: application/json` + header correto; o padrão POST/PATCH-OK vs GET/DELETE-400 se manteve com tokens frescos e headers corretos, confirmando que o D3 é do servidor, não do cliente.
+## Nota D4 (menor, não bloqueante): cadastro de usuário por vendedor responde 400, não 403
+
+`POST /api/collections/users/records` como vendedor → 400 "Failed to create record." (sem mensagem corporativa). Causa: a API rule `create: @request.auth.papel = 'admin'` falha ANTES do hook 5b — o PocketBase responde rule de create falhada com 400 genérico, não 403. O resultado funcional está correto (não-admin não cria usuário; admin cria → 200 com papel default "vendedor" ✓). Sugestão para padronização futura: mover a regra para o hook (rule permissiva + hook lança ForbiddenError com mensagem corporativa) — mesma técnica das demais coleções. Não bloqueia o bloco.
 
 ## Sinal do teste com usuários (repasse)
 
 4 tentativas seguidas (15:35) de mudar de etapa sem ambiente e valor na mesma oportunidade (id `ha45pnwyyzifxqy`) — o aviso "Próximo passo" talvez precise de mais destaque. Confirmar com Julio/Rose na sessão; se confirmarem, ajuste de UI (destaque visual do aviso de bloqueio).
 
-## Limpeza pendente (após correção do D3)
+## Limpeza
 
-Leads de prova criados durante as provas: `PROVA B3 Ven…VenB` (maioria já apagada), `Contato B3…B3f` empresa "Demolidora Comércio" (arquivados com motivo — não apagáveis por não serem PROVA), 1 lead DEMO. O lead real Aroldo está íntegro (a prova b foi só tentativa de DELETE recusada).
+Leads de prova das rodadas anteriores: `PROVA B3 Ven…VenB` (apagados), `Contato B3…B3f` empresa "Demolidora Comércio" (arquivados com motivo), 1 lead DEMO (apagado), usuário de teste da regra (criado e apagado). Lead real Aroldo íntegro. Base real intacta.
 
 ## Conclusão
 
-As regras de papel do Bloco 3 estão corretas (11 provas verdes), mas o D3 torna a versão 0.0.67 inutilizável na tela. **Não aprovar o bloco até a correção.** Prioridade máxima.
+**Bloco 3 APROVADO pelo Bart** — permissões por papel implementadas corretamente (0.0.67, migration 0031). Liberado para o uso do time; teste com usuários de Julio e Rose pode prosseguir.
