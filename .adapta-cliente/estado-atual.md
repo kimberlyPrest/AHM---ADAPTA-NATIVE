@@ -1,12 +1,12 @@
 # Estado atual — Adapta Cliente
 
-- task_id: Bloco 1 da Fase 2 (F2-T01..T04, T08, T09 — campos de entrada, fechamento, duas trilhas, histórico, endpoint em lote, origem LP)
+- task_id: Bloco 2 da Fase 2 (F2-T10 proteção contra exclusão + F2-T05 checklist + F2-T06 fechamento ganho/perda + F2-T07 painel de taxas)
 - champion: Rose
-- spec: emendas 1.2a §3 + 1.2b (SPEC 1.8) + pendências técnicas da Fase 1
-- etapa: aguardando_teste_humano (implementado pelo CC 0.0.60/0.0.61 e revisado pelo Bart c/ provas completas)
-- teste_humano: Fase 1 FECHADA 23/23 (owner aprovou o Bloco 5 em 13/11); Bloco 1 da Fase 2 pendente
-- verificacao_automatica: passou (provas do Bart: campos no lead manual e na importação c/ valor inválido recusado c/ motivo; bloqueio de troca de etapa sem fechamento → 400 e liberação após salvar c/ moeda/entidade derivadas; trilha baixa 5 fases e alta 8 etapas c/ 1ª etapa automática; histórico fecha/abre sem apagar c/ etapa_por; etapa de outra trilha → 400; tela PipelineOportunidade completa; endpoint em lote 1.000 leads em 0,4s → meta <1 min p/ 7.500 ATINGIDA; 13 etapas conferidas; fontes lp/outras fecham a soma)
-- aprendizado: registrado (AP-2026-11-13-0100 — filtros de limpeza c/ urlencode + conferir contagem antes de apagar; DELETE no Aroldo real às 00:15 UTC foi o script do Bart, lead intacto)
-- ultima_acao: Bloco 1 da Fase 2 revisado pelo Bart; limpeza concluída (base 15.379: 15.370 reais + 9 leads do teste do owner)
-- proxima_acao: teste do Bloco 1 da Fase 2 pelo owner; depois F2-T05/T06/T07 (checklist, fechamento ganho/perda, painel de pipeline)
-- atualizado_em: 2026-11-13T01:30:00-03:00
+- spec: briefing 06_notas/briefing-f2-bloco2-protecao-fechamento-painel.md + emenda 1.2b (RN-2.3/RN-2.4)
+- etapa: aguardando_teste_humano (implementado pelo CC 0.0.62-0.0.63 e revisado pelo Bart c/ provas completas API+tela)
+- teste_humano: roteiro 06_notas/roteiro-teste-f2-bloco2.md (~15 min; insumos PROVA prontos: "PROVA Teste Bloco 2 Baixa" c/ fechamento p/ ganho-perda-reabertura; "PROVA Teste Bloco 2 Alta" na etapa 6 p/ checklist e alerta)
+- verificacao_automatica: passou (provas do Bart: DELETE em lead/oportunidade/interação REAIS → 403 mesmo como admin; PROVA/DEMO apaga c/ auditoria em exclusoes_auditoria; arquivamento exige motivo, é reversível, tira das listas/contadores e mantém na verificação de duplicados; checklist: item de outra etapa → 400, resposta imutável → 400, etapa encerrada → 400, alerta de insucesso provado NA TELA; fechamento: sem motivo/sem fechamento/troca direta/etapa fechada/reabrir sem justificativa → 400, oportunidade_fechamentos com 3 registros completos, POST forjado → 403; painel: cálculo replicado por API e conferido na tela, real×alvo nas duas trilhas + taxa de vitória)
+- aprendizado: conteúdo completo do checklist por etapa entregue pelo Bart em 06_notas/conteudo-checklist-etapas-f2-t05.md (Manual de Vendas 05 + Playbook Baixa Complexidade) — migration 0030 pelo CC, NÃO duplicar os 4 insucessos da etapa 6 alta já cadastrados
+- ultima_acao: Bloco 2 revisado pelo Bart; provas do Bart limpas; base 15.383 (15.370 reais + 9 do teste do Bloco 1 + 2 insumos do Bloco 2 + 2 do owner); observação: par duplicado real do Aroldo (LP + CSV, mesmo contato) a decidir
+- proxima_acao: teste do Bloco 2 pelo owner; depois migration 0030 (conteúdo do checklist) e briefing do Bloco 3 (IA — emenda 1.3a aguarda ratificação + 10 casos)
+- atualizado_em: 2026-11-13T09:55:00-03:00
