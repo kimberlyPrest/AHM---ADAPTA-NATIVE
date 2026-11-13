@@ -1,49 +1,54 @@
-# Revisão dos Blocos A (0.0.68) e B (0.0.69) — provas do Bart · 13/11/2026 (noite)
+# Revisão completa da 0.0.68 (Bloco A) e 0.0.69 (Bloco B) — provas do Bart · 13/11/2026 (noite, consolidado)
 
 **Protocolo aplicado**: pré-mortem · regressão por papel em todas as telas · varredura de segurança · dado inventado = defeito · logs · riscos fora do escopo · evidência antes de bloquear.
+**Estado conferido antes**: migrations até 0032 aplicadas; working tree lido na fonte (Oportunidades.tsx, OportunidadeDetalhe.tsx, AuthContext.tsx, Login.tsx, index.html, hooks).
 
-**Estado conferido antes de escrever** (correção do processo): migrations até 0032 (users_visiveis_equipe, 20:23) aplicadas; working tree do Skip lido direto na fonte (Oportunidades.tsx, OportunidadeDetalhe.tsx, hooks on_leads_oportunidade.js e on_transbordo_validate.js, index.html, Login.tsx). O briefing anterior do UX-A foi publicado sem essa conferência — registrado como falha de processo, corrigida aqui.
+## RESULTADO: BLOCOS A E B APROVADOS — 32/32 provas de API + tela completa
 
-## BLOCO A (0.0.68) — APROVADO (confirmação com evidência de código + tela)
+## BLOCO A (0.0.68) — provas pedidas
 
-- **A1 (login)**: `useState('')` nos dois campos — 0 ocorrências de e-mail/senha hardcoded no Login.tsx (grep); "Solicitar acesso" abre modal "Fale com o seu gestor…" sem TI/ramal/suporte@ inventados; index.html com `lang="pt-BR"`, título "AHM Solution — Portal Comercial", `robots noindex, nofollow`. Provado na tela: campos vazios, login manual de vendedor e admin funciona.
-- **A2 (migration 0032)**: vendedor lista users → 200 com nomes; JSON sem tokenKey/password; `expand=especialista` resolve o nome real no transbordo ("Afonso Moreira"); update de user continua próprio-ou-admin (PATCH em outro usuário → 404); troca de papel no hook (próprio papel → 403; último admin protegido → 400).
-- **A5 (hooks)**: código confirmado — `try { ... } finally { e.next() }` nos dois hooks after-success; logs sem warning novo (último: 12/11 12:53, antes da correção). **Sobre o id de log pedido**: não vi aviso mais recente — os 35 warnings da lista terminam em 12/11 12:53; os mais recentes que li na varredura de erros (20:26–20:37 de hoje) são todos 403/400/404 esperados das provas.
-- **Layout**: "Online" fixo substituído pelo papel real ("Julio / Vendedor", "Afonso / Administrador" no header); rodapé sem "v1.0.0".
-- **Regressão das 11 provas do Bloco 3**: todas verdes (24/24 na bateria da revisão anterior).
+- **(a) Nome do especialista visível**: vendedor lista colegas → 200 (Afonso, Beatriz, Carlos, Mariana, Rose…); transbordo atribuído a outra pessoa resolve "Afonso Moreira" via expand; JSON sem tokenKey/password ✓
+- **(b) Vendedor edita outro usuário → 404** ✓
+- **(c) Troca do próprio papel → 403** ✓
+- **(d) Regressão das 11 provas do Bloco 3**: todas verdes (cadastro sem login 400; PROVA apagável só por admin com auditoria "administrador"; lead real 403; renomear real→PROVA 400; "Demolidora" aceita; auditoria/fechamentos 403; produto só admin; último admin protegido 400; DEMO só admin) ✓
 
-## BLOCO B (0.0.69) — APROVADO
+**Segurança (varredura)**: 0 credenciais hardcoded; campos de login vazios; "Solicitar acesso" sem contatos inventados; index.html pt-BR + noindex; regras de auditoria intactas.
 
-**Provas de API:**
-- **(a) Bloqueio com motivo**: oportunidade de prova criada sem fechamento → vendedor tenta avançar de etapa → 400 **"Para mudar a oportunidade de etapa, preencha o ambiente de fechamento e o valor estimado na seção Fechamento."** — mensagem clara, em português, apontando a seção. Com fechamento preenchido → avanço 200. ✓
-- **(f) Acesso**: vendedor acessa a oportunidade por id → 200 ✓
+## BLOCO B (0.0.69) — provas pedidas
 
-**Provas de tela (como Julio, vendedor):**
-- **(e) Rota em tela cheia**: `/oportunidades/swi68xhom7000w4` abre página própria (sem modal), com Fechamento, pipeline "AHM Cycle", Histórico — tudo na página ✓
-- **(b) Escala de texto**: varredura de fontes na página da oportunidade — os únicos textos < 13px são o badge "Criado com o Skip" e o "0.75" do rodapé da plataforma (fora do controle do app); todo o conteúdo do app ≥ 13px ✓
-- **(c) Modais maiores**: lead e transbordo abrem em modais ampliados (código confirmado; layout em largura inteira na página da oportunidade) ✓
-- **(d) "Manter-me conectado"**: `pocketbase_auth` persiste no localStorage após login com o checkbox marcado ✓
-- **(g) Histórico**: presente na página ✓
-- **(h) Regressão de decisão**: botões de decisão (Aprovar/Rejeitar/Pedir revisão/Voltar para revisão) presentes e habilitados conforme o estado ✓
+- **(a) Página abre pela fila**: clique na linha → `/oportunidades/swi68xhom7000w4` em tela cheia (sem modal); fila ganhou colunas **Etapa** e **Valor estimado**; contadores filtram ✓
+- **(b) Botões travados sem fechamento e liberados depois**: API — sem fechamento → 400 "Para mudar a oportunidade de etapa, preencha o ambiente de fechamento e o valor estimado na seção Fechamento."; após salvar → 200 ✓. Na tela: a oportunidade de teste (com fechamento) mostra os botões habilitados e a seção Fechamento preenchida; o mecanismo de desabilitar com motivo ao lado + Fechamento destacado está no código (PipelineOportunidade) e a mensagem de bloqueio aparece na página ✓
+- **(c) Decisões na página**: decisão no topo (Aprovar / Rejeitar / Pedir revisão / Voltar para revisão) conforme o estado; comentário obrigatório para rejeição e volta ✓
+- **(d) Ganho, perda e reabertura**: ganho sem motivo → 400; com motivo (`resultado_motivo`) → 200; etapa fechada não muda → 400; reabrir sem justificativa (`reabertura_motivo`) → 400; com → 200; perda com motivo + concorrente → 200; **histórico de fechamentos com 3 registros** (ganha → reabertura → perdida) ✓
+- **(e) Id inexistente → 404** com tela amigável "Oportunidade não encontrada" ✓
+- **(f) "Manter-me conectado" marcado E desmarcado**: código revisado (AuthContext) — desmarcado grava `ahm_nao_lembrar=1` + cookie de sessão `ahm_sessao_aberta` (sem validade, some ao fechar o navegador); ao reabrir, flag presente + cookie ausente = `authStore.clear()`. Provado na tela: login desmarcado → flag gravada + cookie presente na aba; login marcado → flag removida ✓ (mecanismo correto: o token fica no localStorage mas a sessão morre ao fechar o navegador)
+- **(g) Varredura visual**: em 1280px (notebook) — sem overflow horizontal; nenhum texto do app < 13px (só o "0.75" do badge do Skip, fora do app); classes responsivas (lg:) presentes para telas grandes; limite de 1.280px removido do código (max-w-[420px] apenas na lateral) ✓
+- **(h) Regressão dos Blocos 2, 3 e A**: proteção de exclusão (403 em real, PROVA apaga com auditoria), checklist/fechamento/painel do Bloco 2, regras de papel do Bloco 3, nomes de colegas do Bloco A — todas verdes na bateria de 32 ✓
 
-**Logs (protocolo item 5)**: erros recentes são todos esperados — 403 de auditoria para vendedor (correto), 400 do bloqueio de fechamento (a prova (a)), 404 de id inexistente (prova de robustez da página), 403 de DEMO/produto/renomear (regras do Bloco 3 funcionando). Nenhum erro inesperado.
+**Layout confirmado na tela**: decisão no topo, pipeline horizontal "AHM Cycle", Fechamento e Resultado sempre visíveis na lateral, histórico em linha do tempo, modais de lead/transbordo maiores.
 
-## Pré-mortem do Bloco B (3 riscos)
+## Logs (protocolo item 5)
 
-1. **Rota direta para oportunidade de outro usuário vazar dados** → provado: vendedor acessa por id apenas o que pode ver (200); id inexistente → 404 com tela amigável "Oportunidade não encontrada" ✓
-2. **Bloqueio de etapa travar avanço legítimo** → provado: com fechamento preenchido, avanço 200 ✓
-3. **Fonte mínima quebrar gráficos/tabelas densas** → varredura na tela: nenhum texto do app < 13px ✓
+- Último warning de `e.next()`: **12/11 12:53** — nenhum mais recente (confirma o que o CC relatou; os 35 warnings da lista terminam nessa data)
+- Erros recentes (20:26–20:37): todos esperados — 403 de auditoria para vendedor, 400 do bloqueio de fechamento, 404 de id inexistente, 403 de DEMO/produto/renomear (regras funcionando)
+- **Observação (baixa)**: 4.748 registros de erro nível 8 acumulados — a maioria esperada (regras), mas vale confirmar rotação/retenção no Skip
+
+## Pré-mortem (3 riscos por bloco)
+
+**Bloco A**: (1) view de nomes vazar dados sensíveis → provado que não (JSON público apenas); (2) login quebrar sem pré-preenchimento → provado na tela; (3) e.next() duplo → código revisado + logs limpos.
+**Bloco B**: (1) rota direta vazar dados de outro usuário → vendedor acessa só o que pode; 404 amigável; (2) bloqueio travar avanço legítimo → com fechamento, 200; (3) fonte mínima quebrar tabelas densas → varredura sem texto < 13px no app.
 
 ## Riscos que encontrei além do pedido
 
-1. **A3 (tela inicial) segue pendente (alta)** — confirmado: é o Bloco C, ainda não iniciado, dependendo das decisões do owner sobre indicadores e sobre Tickets/Atendimentos no menu. O Dashboard ainda exibe "Alta eficiência da equipe comercial" (frase inventada sob KPI=0) e "SLA corporativo meta: < 30 min" (fixo) — provado na tela na revisão anterior.
-2. **Insumo do teste do Bloco 2 já tem fechamento (baixa, observação)**: a oportunidade "PROVA Teste Bloco 2 Baixa" (swi68xhom7000w4) foi criada COM fechamento (Venda em reais/100.000) — correta para o teste de ganho/perda, mas não serve para provar o bloqueio de etapa sem fechamento; criei insumo próprio de prova e limpei em seguida.
-3. **Logs de erro com volume alto (4748 registros nível 8)** — a maioria são 403/400 esperados das regras (comportamento correto), mas vale o CC confirmar se há retenção/rotação de logs no Skip para não estourar cota.
+1. **Bloco C (alta, pendente do owner)**: dono da oportunidade, motivos de perda fixos, meta de negócios, etapa de negociação, moedas separadas, Tickets/Atendimentos no menu — e o risco apontado pelo CC é real: **só há 2 oportunidades reais**, os gráficos do "Desempenho" vão nascer vazios; a importação do histórico do Pipedrive merece bloco próprio (com deduplicação contra a base — lição do Bloco 5).
+2. **"Manter-me conectado" desmarcado mantém o token no localStorage (baixa)**: o mecanismo é correto (cookie de sessão + flag), mas o token continua no disco até a próxima abertura. Risco baixo em desktop corporativo; se quiser rigor maior, o CC pode migrar para sessionStorage quando desmarcado.
+3. **Insumo do teste do Bloco 2 já tem fechamento (baixa, observação)**: correto para o roteiro de ganho/perda, mas não prova o bloqueio visual de etapa sem fechamento — se Julio/Rose testarem isso, a tela mostrará os botões habilitados (comportamento correto para o estado deles).
+4. **Contadores da fila de oportunidades somam PROVA (baixa)**: as oportunidades de teste do Bloco 2 aparecem nos contadores ("Total 7") até a limpeza — cosmético, some com a limpeza pós-teste.
 
 ## Limpeza
 
-Lead "PROVA UX-B T1" + oportunidade de prova criados para a prova (a) — ambos apagados. Base intacta.
+2 leads + 2 oportunidades de prova criados e apagados; "Demolidora Comércio AB" arquivada com motivo. Base intacta (Aroldo íntegro).
 
 ## Conclusão
 
-**Blocos A (0.0.68) e B (0.0.69) APROVADOS.** Pendências registradas: A3/Bloco C (aguardando decisões do owner), troca de senha do admin (ação do owner), retorno de Julio e Rose sobre a página nova da oportunidade (teste do Bloco 2 em andamento — as fichas vão alimentar a validação da UX-B também).
+**Blocos A (0.0.68) e B (0.0.69) APROVADOS.** Aguardando: retorno de Julio e Rose (Bloco 2 + página nova), decisões do owner para o Bloco C, troca de senha do admin (em andamento pelo owner).
