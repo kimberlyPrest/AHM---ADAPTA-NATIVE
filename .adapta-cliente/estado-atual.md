@@ -1,12 +1,12 @@
 # Estado atual — Adapta Cliente
 
-- task_id: Bloco C da Fase 2 (F2-T13) — implementado pelo CC (0.0.72, migration 0033) e APROVADO pelo Bart (relatório 06_notas/revisao-bloco-c-provas-bart.md)
+- task_id: IA de vendas F0+F1 (F2-T14/T15) — briefing 06_notas/briefing-f0-f1-ia-captura.md; F0 sem pendências (CC pode começar), F1 aguarda APIs/especialistas/vídeos/Paulo/M365
 - champion: Rose
-- spec: briefing 06_notas/briefing-f2-bloco-c-desempenho.md — tela Desempenho (réplica dos relatórios do Pipedrive), Minha mesa como tela inicial (Tickets/Atendimentos fora do menu), campo Responsável herdado do lead, lista fixa de 25 motivos de perda + "Outro" (inativo), meta do time 20 negócios/mês (configurável), etapas de negociação definidas, moedas separadas R$/US$, histórico de fechamentos só p/ admin
-- etapa: aguardando_teste_humano (Julio e Rose — Bloco 2 + Minha mesa + Desempenho); Bloco D (importação Pipedrive c/ dedup) na sequência
+- spec: briefing 06_notas/briefing-f0-f1-ia-captura.md — F0: base_conhecimento (fonte obrigatória), regras_roteamento (cadastro editável), horarios_executivo, ia_envios (auditoria), modo rascunho→automatica; F1: webhook RD c/ secret, vínculo por e-mail normalizado (ambíguo NÃO envia), geração c/ citações reais, envio M365 (esteira do relatório diário), interação no CRM
+- etapa: briefing publicado (aguardando autorização do owner p/ F0); Bloco D SUSPENSO pelo owner (histórico não confiável, nada importado); teste com usuários em andamento
 - teste_humano: Bloco 2 em teste com usuários (Julio e Rose, prazo 1 dia útil; roteiro 06_notas/roteiro-teste-f2-bloco2-usuarios.md) + retorno sobre a página nova da oportunidade (UX-B)
-- verificacao_automatica: passou — rota desempenho 21 combinações verdes (admin 15 + vendedor 5 + 401), provas (a)-(f) verdes, D1 pré-0.0.72 corrigido, A3 resolvido (sem dado inventado), logs limpos
-- aprendizado: conferir o estado atual do Skip (versão + working tree) ANTES de escrever briefing/relatório; sondar formatos de parâmetros da rota antes da bateria (períodos mes/3m/6m/12m/todos ≠ 7/30/90)
-- ultima_acao: revisão do Bloco C publicada (GitHub ee0c33a); "Outro (especificar)" restaurado inativo após as provas
-- proxima_acao: fichas de Julio e Rose (Bloco 2 + Minha mesa + Desempenho) → tabulação; owner confirma os 25 motivos e decide ativar "Outro"; Bloco D (Pipedrive) briefing na sequência; emenda 1.3a (IA) depois
-- atualizado_em: 2026-11-14T02:30:00-03:00
+- verificacao_automatica: pendente — provas do Bart c/ protocolo novo após implementação
+- aprendizado: conferir o estado atual do Skip (versão + working tree) ANTES de escrever briefing/relatório; sondar formatos de parâmetros da rota antes da bateria
+- ultima_acao: briefing F0+F1 publicado (GitHub 1638968) c/ pré-mortem de 5 riscos
+- proxima_acao: owner autoriza F0 → CC implementa → provas do Bart. Em paralelo: owner resolve pendências F1 (APIs RD/Envya, especialistas, vídeos, Paulo, M365); fichas de Julio e Rose; bônus/margens/pesos chegam depois (tabela editável)
+- atualizado_em: 2026-11-14T07:40:00-03:00
