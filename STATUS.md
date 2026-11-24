@@ -1,6 +1,6 @@
 # STATUS.md — estado único do projeto (fonte da verdade)
 
-**Última atualização**: 24/11/2026 18:45 (Bart) · **Versão do working tree (Skip)**: 0.0.82, não publicada (o preview serve esta) · **Última migration**: 0040 · **Working tree**: limpo
+**Última atualização**: 24/11/2026 19:10 (Bart) · **Versão do working tree (Skip)**: 0.0.83, não publicada (o preview serve esta) · **Última migration**: 0040 · **Working tree**: limpo
 
 > **PLANO DE FOCO (owner, 24/11)**: CRM é o foco; o ERP fica em MANUTENÇÃO (publicar o cálculo no servidor + corrigir o vazamento da calculadora Miami, depois congela). O Bart é o único canal de decisões: UMA mensagem por dia ao owner, tudo em formato A/B.
 
@@ -11,8 +11,8 @@
 | O quê | Quem | Estado | Próximo passo |
 |---|---|---|---|
 | **Bloco R1** — bugs da Rose + datas reais | CC (feito) / Bart (provado) | **PRONTO TECNICAMENTE — aguardando teste humano da Rose e do Julio** (e-mail de convite enviado hoje; Rose refaz o caso real com as datas reais; conclusão formal só depois, pela carta seção 8) | Teste da Rose e do Julio → "pode concluir" do owner |
-| Segurança da equipe — 0.0.79/0.0.82 | CC (feito) / Bart (provado) | **B1 RE-PROVADO: CORRIGIDO** (06_notas/revisao-b1-sessao-aberta-0.0.81.md, GitHub bd8a881) — usuário bloqueado ≡ anônimo (não lê nem escreve nada; login/renovação recusados). 2 débitos BAIXOS: UX da aba aberta (bloqueado vê tela de "base vazia") e erro de escrita genérico (R8 cobre no passo 2). Contas resolvidas pelo Bart (autorizado 18:22): PROVA Vendedor (Bart) criada e ATIVA; Rose Teste 1/2 bloqueadas ("Conta de teste") | "pode concluir" do owner (junto com o teste humano) |
-| Contrato comum CRM + ERP (v0) | CC escreveu / Bart revisou | **REVISÃO ÚNICA FEITA: APROVADO COM 4 AJUSTES** (06_notas/revisao-contrato-crm-erp-v0.md, GitHub 50d7837) — exceção PROVA no motivo, porta do dono na integração proposta, papel operador definido, retenção da chave de idempotência. Cópia do Skip (docs/, 0.0.82) lida e conferida: idêntica ao v0 + 3 adições corretas (nota "Onde está", status do passo 1 do ERP, frase do plano de foco) | CC aplica os 4 ajustes → v1 → Bart confirma em 1 linha → owner aprova |
+| Segurança da equipe — 0.0.79/0.0.83 | CC (feito) / Bart (provado) | **PRONTO PARA O "PODE CONCLUIR"** — B1 corrigido (0.0.82, GitHub bd8a881) + débito de tela corrigido (0.0.83, GitHub 9f2da1e): bloqueado ≡ anônimo; aba aberta → aviso "Sua sessão foi encerrada" → login. Débito restante: erro de escrita genérico (R8 cobre no passo 2 do contrato). Contas: PROVA Vendedor (Bart) ATIVA; Rose Teste 1/2 bloqueadas ("Conta de teste") — owner nunca tinha feito (erro de redação; não há outro banco) | "pode concluir" do owner |
+| Contrato comum CRM + ERP (v1) | CC escreveu / Bart confirmou | **CONFIRMADO PELO BART (1 linha, 24/11 19:00)** — v1 no Skip (0.0.83) com os 4 ajustes aplicados corretamente + regra de moeda/entidade (uma fonte só: CRM deriva, ERP consome) + autenticação por credencial de serviço nos segredos de cada plataforma | Aprovação do owner → versão-mestre do padrão R1–R10 |
 | **ERP — MANUTENÇÃO** (frente paralela) | CC do ERP | Plano do owner: publicar o cálculo no servidor + corrigir o vazamento da calculadora Miami, depois CONGELA | CC do ERP entrega as 2 correções → congela até nova ordem |
 | Roteamento por família (migration 0036) | CC (implementa) | AGUARDANDO OWNER | Owner preenche as 4 planilhas (roteamento-ia-1..4) e autoriza |
 | F0.6 — app Entra ID (Mail.Read/Send caixa CEO, Calendars, transcrições; Access Policy → "Comercial – IA") | TI da AHM | AGUARDANDO TI | Owner encaminha especificação; Bart testa credenciais no dia da entrega |
@@ -38,6 +38,7 @@
 
 | Entrega | Versão | Provas | Data |
 |---|---|---|---|
+| Segurança da equipe (bloqueio, sessões, redefinição) — provas Bart | 0.0.79–0.0.83 | 22 provas + B1 re-provado + débito de tela re-provado | 24/11 |
 | Teste com usuários — retorno da Rose analisado | — | análise 06_notas/analise-feedback-rose-2026-11-24.md | 24/11 |
 | Padrão operável por agentes R1–R10 RATIFICADO (emenda 1.4a) | — | 06_notas/proposta-padrao-operavel-por-agentes.md | 24/11 |
 | F0.1–F0.5 IA de vendas (base conhecimento, roteamento, janelas, auditoria, modo rascunho) | 0.0.74 | Bart 31/31 API + tela | 14/11 |
@@ -58,6 +59,7 @@
 5. Destino do "SLA meta < 30 min" (configuração ou remoção)
 6. Ativar "Outro (especificar)" nos motivos de perda
 7. Par duplicado do Aroldo — qual manter
+8. **Aprovar o Contrato comum CRM + ERP v1** (confirmado pelo Bart 24/11 19:00)
 
 ## Riscos ativos
 
@@ -66,5 +68,6 @@
 | Senha do admin exposta em versões antigas + GitHub | ALTA | Owner trocar (pendente desde 13/11) |
 | Senha de teste do Julio (Teste@CRM2026) ainda ativa até o Julio redefinir pelo link | ALTA | Link enviado pelo owner (18:00); confirmar redefinição |
 | Regras de prova do Bart: NÃO usar contas de pessoas reais (Julio, Rose) — usar PROVA Vendedor (Bart), criada e ativa na base | — | Owner, 24/11 — regra permanente |
+| **Vendedor enxerga TODAS as leads** (regra da coleção desde a Fase 1: "qualquer usuário logado"; "Minha mesa" filtra por responsável, a tela de Leads não) — nota de desenho, decisão de negócio do owner para a entrada em uso | MÉDIA | Registrar decisão antes da entrada em uso pelo time |
 | Gráficos do Desempenho nascem vazios (só 2 ops reais) | MÉDIA | Importação suspensa — aceito pelo owner |
 | Hooks after-success sem e.next() (warning recorrente) | BAIXA | Monitorado nos logs; último 12/11 12:53 |
