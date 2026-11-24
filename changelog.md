@@ -2,6 +2,7 @@
 
 ## 0.0.78 (24/11/2026) — Bloco R1 · datas reais (R6, emenda 1.4a)
 - **APROVADO PELO BART — 32 provas de API + 6 provas de tela, todas verdes; CONCLUÍDO com autorização do owner ("pode concluir", 24/11 15:23)**
+- **ADENDO 1 (owner, 24/11 16:10)**: o "pode concluir" de 24/11 15:23 vale como APROVAÇÃO TÉCNICA. Pela carta (seção 8), a conclusão formal sai após o teste humano — a Rose refaz o caso real com as datas reais; o Bloco R1 segue "pronto tecnicamente, aguardando teste humano".
 - Decisão do owner: toda data guarda o momento REAL do fato, com a data do lançamento registrada à parte; as métricas passam a usar a data real
 - Migration 0038: `leads.entrada_em` (backfill: data original do Pipedrive, senão created) · `oportunidades.inicio_ocorrido_em` e `resultado_ocorrido_em` (campos de entrada, nunca persistem) · `oportunidade_fechamentos.ocorrido_em`
 - Hook on_leads_entrada.js: entrada sem data → agora; data informada → não futura (dia de Brasília); correção permitida na alteração

@@ -1,6 +1,6 @@
 # STATUS.md — estado único do projeto (fonte da verdade)
 
-**Última atualização**: 24/11/2026 16:00 (Bart) · **Versão em produção**: 0.0.79 · **Última migration**: 0039 · **Working tree**: limpo
+**Última atualização**: 24/11/2026 16:10 (Bart) · **Versão em produção**: 0.0.79 · **Última migration**: 0039 · **Working tree**: limpo
 
 > Este é o ÚNICO arquivo de estado. `fase.md` = fila de tasks (estático). `changelog.md` = histórico por versão (só na conclusão). `.adapta-cliente/estado-atual.md` = APOSENTADO (aponta para cá). `CLAUDE.md` = convenções técnicas (não cita número de versão/migration — aponta para cá). `CARTA-BART.md` = papel e regras do Bart (v1.2 publicada; aprovação final do owner pendente). OBS: a publicação pelo chat apagou a formatação (títulos, negrito, tabelas, bloco de código) da carta e das notas — a versão formatada sobe quando o acesso ao GitHub sair; não republicar por cima.
 
@@ -8,12 +8,20 @@
 
 | O quê | Quem | Estado | Próximo passo |
 |---|---|---|---|
-| Segurança da equipe — 0.0.79 | CC | REVISADO PELO BART: APROVADO COM B1 (token antigo segue válido após bloqueio — sessões abertas não encerradas na prática; novo login e renovação sim) | CC corrige/documenta B1 → Bart re-prova → "pode concluir" |
+| **Bloco R1** — bugs da Rose + datas reais | CC (feito) / Bart (provado) | **PRONTO TECNICAMENTE — aguardando teste humano** (Rose refaz o caso real com as datas reais; conclusão formal só depois, pela carta seção 8) | Teste da Rose → "pode concluir" do owner |
+| Segurança da equipe — 0.0.79 | CC | REVISADO PELO BART: APROVADO COM B1 (token antigo segue válido após bloqueio — sessões abertas não encerradas na prática; novo login e renovação sim); 22 provas API + tela; relatório 06_notas/revisao-seguranca-equipe-provas-bart.md | CC corrige/documenta B1 → Bart re-prova → teste humano → concluir |
+| Contrato comum CRM + ERP (v0) | CC escreveu / Bart revisa 1× | AGUARDANDO O TEXTO — não chegou no chat (placeholder vazio) nem está no repo/Skip | Owner cola o texto ou o CC publica no repo |
+| **Frente paralela — ERP** (Claude Code do ERP) | CC do ERP | Cálculo sendo publicado no servidor + papel "operador" com ok do owner a cada etapa | Owner traz o relatório do ERP (06_notas/pedido-relatorio-erp.md) → avaliação contra R1–R10 |
 | Roteamento por família (migration 0036) | CC (implementa) | AGUARDANDO OWNER | Owner preenche as 4 planilhas (roteamento-ia-1..4) e autoriza |
 | F0.6 — app Entra ID (Mail.Read/Send caixa CEO, Calendars, transcrições; Access Policy → "Comercial – IA") | TI da AHM | AGUARDANDO TI | Owner encaminha especificação; Bart testa credenciais no dia da entrega |
 | APIs RD Station + Envya | Owner → especialista | SOLICITADO | E-mail pronto (artifacts/emails-acesso-api-rd-envya-m365.md) |
 | Perguntas ao suporte Skip ($ai.chat: modelo, BYOK, limites, LGPD) | Owner/CC → suporte | EM ABERTO | Resposta decide IA 100% Skip vs serviço à parte |
 | Cadastro do Paulo | Owner passa nome+e-mail → Bart cria via API | AGUARDANDO OWNER | — |
+
+## Fila próxima (ordem do owner)
+
+1. **Bloco R2** (após o teste da Rose): P1 observação livre por fase · P2 proposta (PDF) ligada à oportunidade · P4 ocorrência na implementação — tudo já no padrão R1–R10
+2. **Migration 0036** (roteamento por família) — quando o owner entregar as 4 planilhas
 
 ## Bloqueado (por quem)
 
@@ -26,7 +34,6 @@
 
 | Entrega | Versão | Provas | Data |
 |---|---|---|---|
-| **Bloco R1 COMPLETO** — bugs da Rose (B1-B4) + correção A1 + datas reais (R6); métricas usam a data real | 0.0.76–0.0.78 | Bart: 62 provas API + 6 tela; changelog consolidado; aprendizado AP-2026-11-24-1530 | 24/11 |
 | Teste com usuários — retorno da Rose analisado | — | análise 06_notas/analise-feedback-rose-2026-11-24.md | 24/11 |
 | Padrão operável por agentes R1–R10 RATIFICADO (emenda 1.4a) | — | 06_notas/proposta-padrao-operavel-por-agentes.md | 24/11 |
 | F0.1–F0.5 IA de vendas (base conhecimento, roteamento, janelas, auditoria, modo rascunho) | 0.0.74 | Bart 31/31 API + tela | 14/11 |
