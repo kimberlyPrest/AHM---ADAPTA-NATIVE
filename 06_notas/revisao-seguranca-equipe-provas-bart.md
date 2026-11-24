@@ -62,3 +62,19 @@
 **BLOCO SEGURANÇA DA EQUIPE: APROVADO COM B1 PENDENTE** (sessões abertas não são encerradas na prática; novo login e renovação sim). O risco original (senhas dos exemplos publicadas no repo) está **resolvido**: os 3 usuários estão bloqueados com senha aleatória e login recusado.
 
 **Próximo passo**: CC investiga/corrige B1 (ou documenta como limitação) → eu re-provo o cenário do token antigo → "pode concluir".
+
+## ADENDO 1 — re-prova na 0.0.80 + correção do e-mail do Julio (24/11, 17:50)
+
+**Estado conferido em 24/11 17:50: versão 0.0.80, migration 0040, working tree limpo.**
+
+| Prova | Resultado |
+|---|---|
+| B1 re-prova: token antigo após bloqueio → deveria ser 401 | ❌ **B1 CONTINUA** (200 — o hook é o mesmo da 0.0.79; a 0.0.80 não tocou no B1) |
+| Migration 0040: e-mail do Julio → julio.marcos@ahmsolution.com, emailVisibility=true, verified=true, MESMO id (históricos preservados) | ✅ |
+| Login do Julio com o e-mail novo | ✅ funciona |
+| Renovação de sessão (auth-refresh) e requisições normais do Julio | ✅ |
+| **Senha de teste do Julio (Teste@CRM2026) NÃO foi trocada — login com ela ainda funciona** | ⚠️ risco pendente do owner (as senhas foram enviadas por e-mail em 13/11) |
+
+**Leitura do B1**: a 0.0.80 corrigiu o e-mail do Julio (era isso que travava o link de senha); o B1 (sessões abertas não encerradas na prática) segue em aberto — ou o CC o resolve com um mecanismo diferente (ex.: middleware global que recusa requisitante bloqueado), ou o registramos como limitação conhecida com o tempo de vida do token reduzido. O pior caso (senhas públicas dos exemplos) permanece coberto: login novo é recusado.
+
+**Rose Teste / Rose Teste 2 (pergunta do owner)**: o Bart **não usa nenhuma** nas provas — usa o Julio. As duas estão hoje desbloqueadas; a Rose Teste 2 tem e-mail real (teste.rose2@), a Rose Teste não tem e-mail visível. Pode bloquear as duas; se quiser manter uma para testes próprios, mantenha a Rose Teste 2.
