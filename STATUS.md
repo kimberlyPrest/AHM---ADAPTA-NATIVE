@@ -1,6 +1,6 @@
 # STATUS.md — estado único do projeto (fonte da verdade)
 
-**Última atualização**: 24/11/2026 15:20 (Bart) · **Versão em produção**: 0.0.78 · **Última migration**: 0038 · **Working tree**: limpo
+**Última atualização**: 24/11/2026 15:30 (Bart) · **Versão em produção**: 0.0.78 · **Última migration**: 0038 · **Working tree**: limpo
 
 > Este é o ÚNICO arquivo de estado. `fase.md` = fila de tasks (estático). `changelog.md` = histórico por versão (só na conclusão). `.adapta-cliente/estado-atual.md` = APOSENTADO (aponta para cá). `CLAUDE.md` = convenções técnicas (não cita número de versão/migration — aponta para cá). `CARTA-BART.md` = papel e regras do Bart (v1.2 publicada; aprovação final do owner pendente). OBS: a publicação pelo chat apagou a formatação (títulos, negrito, tabelas, bloco de código) da carta e das notas — a versão formatada sobe quando o acesso ao GitHub sair; não republicar por cima.
 
@@ -8,7 +8,6 @@
 
 | O quê | Quem | Estado | Próximo passo |
 |---|---|---|---|
-| Bloco R1 (bugs da Rose + datas reais) — 0.0.77/0.0.78 | CC | A1 re-provado (2/2) + DATAS REAIS provadas (32/32 API) + PROVAS DE TELA (6/6: caso da Rose refeito na tela c/ selos, Minha mesa limpa, conclusão de etapa c/ data passada e histórico "data informada; lançado em…") | Aguardando "pode concluir" do owner |
 | Roteamento por família (migration 0036) | CC (implementa) | AGUARDANDO OWNER | Owner preenche as 4 planilhas (roteamento-ia-1..4) e autoriza |
 | F0.6 — app Entra ID (Mail.Read/Send caixa CEO, Calendars, transcrições; Access Policy → "Comercial – IA") | TI da AHM | AGUARDANDO TI | Owner encaminha especificação; Bart testa credenciais no dia da entrega |
 | APIs RD Station + Envya | Owner → especialista | SOLICITADO | E-mail pronto (artifacts/emails-acesso-api-rd-envya-m365.md) |
@@ -26,9 +25,7 @@
 
 | Entrega | Versão | Provas | Data |
 |---|---|---|---|
-| Revisão do Bloco R1 (B1–B4 da Rose provados; A1 pendente) | 0.0.76 | Bart: 30 provas API + tela; relatório 06_notas/revisao-bloco-r1-provas-bart.md | 24/11 |
-| A1 corrigido e re-provado pelo Bart (6/6) | 0.0.77 | Bart: re-prova do cenário A1 | 24/11 |
-| Datas reais (entrada, início, etapa, ganho/perda; métricas na data real) | 0.0.78 | Bart: 32 provas API + 6 provas de tela (migration 0038) | 24/11 |
+| **Bloco R1 COMPLETO** — bugs da Rose (B1-B4) + correção A1 + datas reais (R6); métricas usam a data real | 0.0.76–0.0.78 | Bart: 62 provas API + 6 tela; changelog consolidado; aprendizado AP-2026-11-24-1530 | 24/11 |
 | Teste com usuários — retorno da Rose analisado | — | análise 06_notas/analise-feedback-rose-2026-11-24.md | 24/11 |
 | Padrão operável por agentes R1–R10 RATIFICADO (emenda 1.4a) | — | 06_notas/proposta-padrao-operavel-por-agentes.md | 24/11 |
 | F0.1–F0.5 IA de vendas (base conhecimento, roteamento, janelas, auditoria, modo rascunho) | 0.0.74 | Bart 31/31 API + tela | 14/11 |
@@ -43,13 +40,12 @@
 ## Decisões do owner pendentes
 
 1. Aprovação final da CARTA-BART v1.2
-2. "Pode concluir" do Bloco R1 (0.0.77/0.0.78)
-3. Casos reais da Rose (Red Zone, Veronica) — ficam reais ou são marcados/arquivados
-4. Trocar senhas de teste de Julio e Rose (enviadas por e-mail em 13/11)
-5. Autorizar a 0036 (roteamento por família) — após planilhas
-6. Destino do "SLA meta < 30 min" (configuração ou remoção)
-7. Ativar "Outro (especificar)" nos motivos de perda
-8. Par duplicado do Aroldo — qual manter
+2. Casos reais da Rose (Red Zone, Veronica) — ficam reais ou são marcados/arquivados
+3. Trocar senhas de teste de Julio e Rose (enviadas por e-mail em 13/11)
+4. Autorizar a 0036 (roteamento por família) — após planilhas
+5. Destino do "SLA meta < 30 min" (configuração ou remoção)
+6. Ativar "Outro (especificar)" nos motivos de perda
+7. Par duplicado do Aroldo — qual manter
 
 ## Riscos ativos
 
