@@ -1,6 +1,8 @@
 # STATUS.md — estado único do projeto (fonte da verdade)
 
-**Última atualização**: 24/11/2026 16:10 (Bart) · **Versão em produção**: 0.0.79 · **Última migration**: 0039 · **Working tree**: limpo
+**Última atualização**: 24/11/2026 18:00 (Bart) · **Versão em produção**: 0.0.80 · **Última migration**: 0040 · **Working tree**: limpo
+
+> **PLANO DE FOCO (owner, 24/11)**: CRM é o foco; o ERP fica em MANUTENÇÃO (publicar o cálculo no servidor + corrigir o vazamento da calculadora Miami, depois congela). O Bart é o único canal de decisões: UMA mensagem por dia ao owner, tudo em formato A/B.
 
 > Este é o ÚNICO arquivo de estado. `fase.md` = fila de tasks (estático). `changelog.md` = histórico por versão (só na conclusão). `.adapta-cliente/estado-atual.md` = APOSENTADO (aponta para cá). `CLAUDE.md` = convenções técnicas (não cita número de versão/migration — aponta para cá). `CARTA-BART.md` = papel e regras do Bart (v1.2 publicada; aprovação final do owner pendente). OBS: a publicação pelo chat apagou a formatação (títulos, negrito, tabelas, bloco de código) da carta e das notas — a versão formatada sobe quando o acesso ao GitHub sair; não republicar por cima.
 
@@ -8,20 +10,22 @@
 
 | O quê | Quem | Estado | Próximo passo |
 |---|---|---|---|
-| **Bloco R1** — bugs da Rose + datas reais | CC (feito) / Bart (provado) | **PRONTO TECNICAMENTE — aguardando teste humano** (Rose refaz o caso real com as datas reais; conclusão formal só depois, pela carta seção 8) | Teste da Rose → "pode concluir" do owner |
-| Segurança da equipe — 0.0.79 | CC | REVISADO PELO BART: APROVADO COM B1 (token antigo segue válido após bloqueio — sessões abertas não encerradas na prática; novo login e renovação sim); 22 provas API + tela; relatório 06_notas/revisao-seguranca-equipe-provas-bart.md | CC corrige/documenta B1 → Bart re-prova → teste humano → concluir |
+| **Bloco R1** — bugs da Rose + datas reais | CC (feito) / Bart (provado) | **PRONTO TECNICAMENTE — aguardando teste humano da Rose e do Julio** (e-mail de convite enviado hoje; Rose refaz o caso real com as datas reais; conclusão formal só depois, pela carta seção 8) | Teste da Rose e do Julio → "pode concluir" do owner |
+| Segurança da equipe — 0.0.79/0.0.80 | CC | REVISADO PELO BART (22 provas + Adendo 1): APROVADA COM B1 CONTINUANDO (token antigo segue válido após bloqueio; a 0.0.80 corrigiu o e-mail do Julio — provado); ⚠️ senha de teste do Julio NÃO trocada ainda | CC resolve/documenta B1 → Bart re-prova → concluir |
 | Contrato comum CRM + ERP (v0) | CC escreveu / Bart revisa 1× | AGUARDANDO O TEXTO — não chegou no chat (placeholder vazio) nem está no repo/Skip | Owner cola o texto ou o CC publica no repo |
-| **Frente paralela — ERP** (Claude Code do ERP) | CC do ERP | Cálculo sendo publicado no servidor + papel "operador" com ok do owner a cada etapa | Owner traz o relatório do ERP (06_notas/pedido-relatorio-erp.md) → avaliação contra R1–R10 |
+| **ERP — MANUTENÇÃO** (frente paralela) | CC do ERP | Plano do owner: publicar o cálculo no servidor + corrigir o vazamento da calculadora Miami, depois CONGELA | CC do ERP entrega as 2 correções → congela até nova ordem |
 | Roteamento por família (migration 0036) | CC (implementa) | AGUARDANDO OWNER | Owner preenche as 4 planilhas (roteamento-ia-1..4) e autoriza |
 | F0.6 — app Entra ID (Mail.Read/Send caixa CEO, Calendars, transcrições; Access Policy → "Comercial – IA") | TI da AHM | AGUARDANDO TI | Owner encaminha especificação; Bart testa credenciais no dia da entrega |
 | APIs RD Station + Envya | Owner → especialista | SOLICITADO | E-mail pronto (artifacts/emails-acesso-api-rd-envya-m365.md) |
 | Perguntas ao suporte Skip ($ai.chat: modelo, BYOK, limites, LGPD) | Owner/CC → suporte | EM ABERTO | Resposta decide IA 100% Skip vs serviço à parte |
 | Cadastro do Paulo | Owner passa nome+e-mail → Bart cria via API | AGUARDANDO OWNER | — |
 
-## Fila próxima (ordem do owner)
+## Fila próxima (ordem do owner, 24/11)
 
-1. **Bloco R2** (após o teste da Rose): P1 observação livre por fase · P2 proposta (PDF) ligada à oportunidade · P4 ocorrência na implementação — tudo já no padrão R1–R10
-2. **Migration 0036** (roteamento por família) — quando o owner entregar as 4 planilhas
+1. **Catálogo completo de produtos** — aguardando a lista da Rose (C1 do feedback)
+2. **Bloco R2** (após o teste da Rose): P1 observação livre por fase · P2 proposta (PDF) ligada à oportunidade · P4 ocorrência na implementação — tudo já no padrão R1–R10
+3. **Entrada em uso pelo time**
+4. **Migration 0036** (roteamento por família) — quando o owner entregar as 4 planilhas
 
 ## Bloqueado (por quem)
 
@@ -48,7 +52,7 @@
 ## Decisões do owner pendentes
 
 1. Aprovação final da CARTA-BART v1.2
-2. Segurança da equipe: Rose Teste (bloquear?) e senha da Rose Teste 2; Kimberly como admin — confirmar; caixa do Julio recebe e-mail?
+2. Segurança da equipe: Rose Teste e Rose Teste 2 — o Bart não usa nenhuma (usa o Julio); pode bloquear as duas · Kimberly como admin — confirmar · senha de teste do Julio ainda não foi trocada (⚠️ login com Teste@CRM2026 funciona)
 3. Casos reais da Rose (Red Zone, Veronica) — ficam reais ou são marcados/arquivados
 4. Trocar senhas de teste de Julio e Rose (enviadas por e-mail em 13/11)
 5. Autorizar a 0036 (roteamento por família) — após planilhas
@@ -61,5 +65,6 @@
 | Risco | Gravidade | Mitigação |
 |---|---|---|
 | Senha do admin exposta em versões antigas + GitHub | ALTA | Owner trocar (pendente desde 13/11) |
+| Senha de teste do Julio (Teste@CRM2026) ainda ativa — foi enviada por e-mail em 13/11 | ALTA | Owner trocar (redefinir-senha pelo admin ou troca na tela) |
 | Gráficos do Desempenho nascem vazios (só 2 ops reais) | MÉDIA | Importação suspensa — aceito pelo owner |
 | Hooks after-success sem e.next() (warning recorrente) | BAIXA | Monitorado nos logs; último 12/11 12:53 |
