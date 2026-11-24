@@ -1,6 +1,6 @@
 # STATUS.md — estado único do projeto (fonte da verdade)
 
-**Última atualização**: 24/11/2026 18:10 (Bart) · **Versão em produção**: 0.0.80 · **Última migration**: 0040 · **Working tree**: limpo
+**Última atualização**: 24/11/2026 18:25 (Bart) · **Versão em produção**: 0.0.80 · **Última migration**: 0040 · **Working tree**: limpo
 
 > **PLANO DE FOCO (owner, 24/11)**: CRM é o foco; o ERP fica em MANUTENÇÃO (publicar o cálculo no servidor + corrigir o vazamento da calculadora Miami, depois congela). O Bart é o único canal de decisões: UMA mensagem por dia ao owner, tudo em formato A/B.
 
@@ -12,7 +12,7 @@
 |---|---|---|---|
 | **Bloco R1** — bugs da Rose + datas reais | CC (feito) / Bart (provado) | **PRONTO TECNICAMENTE — aguardando teste humano da Rose e do Julio** (e-mail de convite enviado hoje; Rose refaz o caso real com as datas reais; conclusão formal só depois, pela carta seção 8) | Teste da Rose e do Julio → "pode concluir" do owner |
 | Segurança da equipe — 0.0.79/0.0.80 | CC | REVISADO PELO BART (22 provas + Adendo 1): APROVADA COM B1 CONTINUANDO (token antigo segue válido após bloqueio; a 0.0.80 corrigiu o e-mail do Julio — provado). B1: CC vai tentar a correção (opção A do owner) → Bart re-prova quando o owner avisar · link de senha do Julio ENVIADO pelo owner (18:00) · ⚠️ conta PROVA Vendedor (Bart) ainda não aparece na base; Rose Teste e Rose Teste 2 seguem desbloqueadas na base (owner disse ter bloqueado — conferir) | B1 → re-prova → concluir |
-| Contrato comum CRM + ERP (v0) | CC escreveu / Bart revisa 1× | AGUARDANDO O TEXTO — não chegou no chat (placeholder vazio) nem está no repo/Skip | Owner cola o texto ou o CC publica no repo |
+| Contrato comum CRM + ERP (v0) | CC escreveu / Bart revisou | **REVISÃO ÚNICA FEITA: APROVADO COM 4 AJUSTES** (06_notas/revisao-contrato-crm-erp-v0.md, GitHub 50d7837) — exceção PROVA no motivo, porta do dono na integração proposta, papel operador definido, retenção da chave de idempotência | CC aplica os 4 ajustes → v1 no repo → Bart confirma em 1 linha → owner aprova |
 | **ERP — MANUTENÇÃO** (frente paralela) | CC do ERP | Plano do owner: publicar o cálculo no servidor + corrigir o vazamento da calculadora Miami, depois CONGELA | CC do ERP entrega as 2 correções → congela até nova ordem |
 | Roteamento por família (migration 0036) | CC (implementa) | AGUARDANDO OWNER | Owner preenche as 4 planilhas (roteamento-ia-1..4) e autoriza |
 | F0.6 — app Entra ID (Mail.Read/Send caixa CEO, Calendars, transcrições; Access Policy → "Comercial – IA") | TI da AHM | AGUARDANDO TI | Owner encaminha especificação; Bart testa credenciais no dia da entrega |
