@@ -1,31 +1,33 @@
 # STATUS.md — estado único do projeto (fonte da verdade)
 
-**Última atualização**: 14/11/2026 21:30 (Bart) · **Versão em produção**: 0.0.74 · **Última migration**: 0035 · **Working tree**: limpo
+**Última atualização**: 24/11/2026 12:20 (Bart) · **Versão em produção**: 0.0.74 · **Última migration**: 0035 · **Working tree**: limpo
 
-> Este é o ÚNICO arquivo de estado. `fase.md` = fila de tasks (estático). `changelog.md` = histórico por versão (só na conclusão). `.adapta-cliente/estado-atual.md` = APOSENTADO (aponta para cá). `CLAUDE.md` = convenções técnicas (não é estado).
+> Este é o ÚNICO arquivo de estado. `fase.md` = fila de tasks (estático). `changelog.md` = histórico por versão (só na conclusão). `.adapta-cliente/estado-atual.md` = APOSENTADO (aponta para cá). `CLAUDE.md` = convenções técnicas (não cita número de versão/migration — aponta para cá). `CARTA-BART.md` = papel e regras do Bart (v1 a ser escrita pelo CC, revisada pelo Bart, aprovada pelo owner).
 
 ## Em curso
 
 | O quê | Quem | Estado | Próximo passo |
 |---|---|---|---|
+| Carta do Bart v1 (CARTA-BART.md) | CC escreve → Bart revisa 1× → owner aprova | AGUARDANDO OWNER (texto das instruções da plataforma) | Owner repassa o texto ao CC |
 | Roteamento por família (migration 0036) | CC (implementa) | AGUARDANDO OWNER | Owner preenche as 4 planilhas (roteamento-ia-1..4) e autoriza |
 | F0.6 — app Entra ID (Mail.Read/Send caixa CEO, Calendars, transcrições; Access Policy → "Comercial – IA") | TI da AHM | AGUARDANDO TI | Owner encaminha especificação; Bart testa credenciais no dia da entrega |
-| Teste com usuários (Bloco 2 + telas novas) | Julio e Rose | EM ANDAMENTO | Fichas de resposta pendentes |
 | APIs RD Station + Envya | Owner → especialista | SOLICITADO | E-mail pronto (artifacts/emails-acesso-api-rd-envya-m365.md) |
 | Perguntas ao suporte Skip ($ai.chat: modelo, BYOK, limites, LGPD) | Owner/CC → suporte | EM ABERTO | Resposta decide IA 100% Skip vs serviço à parte |
+| Cadastro do Paulo | Owner passa nome+e-mail → Bart cria via API | AGUARDANDO OWNER | — |
 
 ## Bloqueado (por quem)
 
 | O quê | Bloqueio | Desde |
 |---|---|---|
 | Importação Pipedrive (Bloco D pronto, 0.0.73) | OWNER suspendeu — histórico não confiável | 14/11 |
-| Cadastro do Paulo | Owner passar nome+e-mail (Bart cria via API) | 14/11 |
 | F1 completo (webhook RD, Envya, geração, envio) | APIs + especialistas + vídeos + F0.6 | 14/11 |
 
 ## Pronto (aprovado e verificado)
 
 | Entrega | Versão | Provas | Data |
 |---|---|---|---|
+| Teste com usuários — retorno da Rose analisado | — | análise 06_notas/analise-feedback-rose-2026-11-24.md | 24/11 |
+| Padrão operável por agentes R1–R10 RATIFICADO (emenda 1.4a) | — | 06_notas/proposta-padrao-operavel-por-agentes.md | 24/11 |
 | F0.1–F0.5 IA de vendas (base conhecimento, roteamento, janelas, auditoria, modo rascunho) | 0.0.74 | Bart 31/31 API + tela | 14/11 |
 | Bloco D — importação Pipedrive (rota/tela prontas, nada importado) | 0.0.73 | Bart a–f | 14/11 |
 | Bloco C — Desempenho/Minha mesa/motivos de perda | 0.0.72 | Bart (a)–(f) | 13/11 |
@@ -41,7 +43,6 @@
 2. Destino do "SLA meta < 30 min" (configuração ou remoção)
 3. Ativar "Outro (especificar)" nos motivos de perda
 4. Par duplicado do Aroldo — qual manter
-5. Aposentar arquivos de estado duplicados (carta do Bart v0) — **aguardando aprovação**
 
 ## Riscos ativos
 
